@@ -269,9 +269,11 @@
   footer a:hover{color:#fff;text-decoration:underline}
 
   /* Scroll reveal (only when motion is OK and JS ran) */
-  .js .rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease, transform .6s ease}
-  .js .rv.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion: reduce){ .js .rv{opacity:1;transform:none;transition:none} }
+  /* Content is never hidden: it only slides up a little as it arrives, so photos can't get stuck invisible */
+  @media (prefers-reduced-motion: no-preference){
+    .js .rv{transform:translateY(18px);transition:transform .6s ease}
+    .js .rv.in{transform:none}
+  }
 
   /* Phone action bar */
   .bar{display:none}
@@ -662,6 +664,8 @@
     var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }); }, {rootMargin:"0px 0px -8% 0px"});
     document.querySelectorAll(".rv").forEach(function(el){ io.observe(el); });
   } else { document.querySelectorAll(".rv").forEach(function(el){ el.classList.add("in"); }); }
+  // Safety net: settle everything after a few seconds no matter what
+  setTimeout(function(){ document.querySelectorAll(".rv").forEach(function(el){ el.classList.add("in"); }); }, 3000);
 </script>
 </body>
 </html>
