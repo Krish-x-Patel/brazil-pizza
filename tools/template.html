@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brazil Pizza | Authentic Brazilian-style pizza in Marietta, GA</title>
+<meta name="description" content="Authentic Brazilian-style pizza, savory and sweet, plus all-you-can-eat rodízio Thursday to Sunday. 279 Powers Ferry Rd SE, Marietta, GA. Call (404) 421-1426 or order online.">
+<!-- Remove the next line to let search engines list the site. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1e1f20">
+<link rel="icon" href="images/logo-mark.png">
+<link rel="stylesheet" href="https://unpkg.com/lenis@1.3.27/dist/lenis.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","name":"Brazil Pizza","servesCuisine":["Brazilian","Pizza"],
+ "telephone":"+1-404-421-1426","priceRange":"$$","image":"images/hero.jpg","menu":"https://orderbrazilpizza.square.site/",
+ "sameAs":["https://www.instagram.com/brazilpizzamarietta/"],
+ "address":{"@type":"PostalAddress","streetAddress":"279 Powers Ferry Rd SE, Ste B","addressLocality":"Marietta","addressRegion":"GA","postalCode":"30067","addressCountry":"US"},
+ "openingHoursSpecification":[
+  {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"14:00","closes":"22:30"},
+  {"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"17:00","closes":"22:30"}]}
+</script>
+<style>
+  :root{
+    --paper:#f7f3ec; --soft:#efe8dc; --ink:#1e1f20; --muted:#5f5a54;
+    --flame:#c2410c; --flame-dark:#9a3412; --gold:#f4a12a; --green:#13703f;
+    --line:#e2d9cb; --on-flame:#fff; --night:#1e1f20; --on-night:#f7f3ec;
+    --header:64px; --chips:58px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#161718; --soft:#222325; --ink:#f3eee7; --muted:#b4ada4;
+      --flame:#f08a3a; --flame-dark:#f59e52; --green:#4fbf7d; --line:#323436; --on-flame:#1e1f20;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#161718; --soft:#222325; --ink:#f3eee7; --muted:#b4ada4;
+    --flame:#f08a3a; --flame-dark:#f59e52; --green:#4fbf7d; --line:#323436; --on-flame:#1e1f20;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+  body{background:var(--paper);color:var(--ink);font-family:"Barlow",system-ui,sans-serif;font-size:17px;line-height:1.55}
+  a{color:inherit}
+  img{display:block;max-width:100%}
+  :focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:8px;z-index:99}
+  .skip:focus{left:8px}
+  h1,h2,h3,.cond{font-family:"Barlow Condensed","Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.01em}
+  h2{font-weight:800;font-size:clamp(32px,5vw,48px);line-height:1}
+  .sec{padding:60px 0;border-top:1px solid var(--line);scroll-margin-top:var(--header)}
+  .sec-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;margin-bottom:26px}
+  .sec-head p{color:var(--muted)}
+  .link{color:var(--flame);font-weight:600;text-decoration:none}
+  .link:hover{text-decoration:underline}
+
+  /* Header: always the brand's charcoal, so the logo sits on its own background */
+  header{position:sticky;top:0;z-index:30;background:var(--night);color:var(--on-night)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:var(--header);gap:16px}
+  .brand{display:flex;align-items:center;text-decoration:none}
+  .brand img{height:44px;width:auto}
+  .nav{display:flex;align-items:center;gap:22px;font-size:16px;font-weight:500}
+  .nav a{text-decoration:none;color:#cfc8bf}
+  .nav a:hover{color:#fff}
+  .nav .btn{color:#1e1f20}
+  @media (max-width:860px){ .nav .hide{display:none} }
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:999px;
+       font-weight:600;font-size:16px;text-decoration:none;white-space:nowrap}
+  .btn.primary{background:var(--flame);color:var(--on-flame)}
+  .btn.primary:hover{background:var(--flame-dark)}
+  .btn.gold{background:var(--gold);color:#1e1f20}
+  .btn.gold:hover{background:#f7b552}
+  .btn.ghost{border:1.5px solid var(--ink);color:var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper)}
+  .btn.sm{min-height:44px;padding:0 18px;font-size:15px}
+
+  /* Hero */
+  .hero{padding:36px 0 28px}
+  .hero .wrap{display:grid;gap:24px;align-items:center;grid-template-columns:1fr}
+  @media (min-width:900px){ .hero{padding:56px 0 40px} .hero .wrap{grid-template-columns:.9fr 1.1fr;gap:48px} }
+  .status{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;background:var(--soft);padding:6px 12px;border-radius:999px}
+  .dot{width:9px;height:9px;border-radius:50%;background:#a39a92}
+  .dot.open{background:#2f9a55}
+  h1{font-weight:800;font-size:clamp(46px,7.4vw,84px);line-height:.92;margin-top:14px;max-width:11ch}
+  h1 em{font-style:normal;color:var(--flame)}
+  .hero p.lead{color:var(--muted);font-size:18px;margin-top:16px;max-width:42ch}
+  .hero .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px}
+  .rating{margin-top:16px;font-size:15px;color:var(--muted)}
+  .rating .stars{color:var(--gold);letter-spacing:1px}
+  .hero-photo{border-radius:22px;overflow:hidden;aspect-ratio:1.98/1;background:var(--soft)}
+  .hero-photo img{width:100%;height:100%;object-fit:cover}
+  @media (max-width:899px){ .hero-photo{aspect-ratio:16/10} }
+
+  /* At a glance */
+  .glance{display:grid;grid-template-columns:1fr;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:8px}
+  @media (min-width:760px){ .glance{grid-template-columns:repeat(3,1fr)} }
+  .glance a{display:flex;flex-direction:column;gap:2px;padding:16px 20px;text-decoration:none;min-height:76px;justify-content:center}
+  .glance a + a{border-top:1px solid var(--line)}
+  @media (min-width:760px){ .glance a + a{border-top:0;border-left:1px solid var(--line)} }
+  .glance a:hover{background:var(--soft)}
+  .glance .k{font-size:14px;color:var(--muted)}
+  .glance .v{font-weight:600;font-size:17px}
+  .glance .go{color:var(--flame);font-size:15px;font-weight:600}
+
+  /* Popular */
+  .pops{display:grid;gap:24px 16px;grid-template-columns:repeat(2,1fr)}
+  @media (min-width:760px){ .pops{grid-template-columns:repeat(3,1fr);gap:30px 22px} }
+  .pop{text-decoration:none;display:flex;flex-direction:column;gap:4px}
+  .pop-img{position:relative;display:block;border-radius:14px;overflow:hidden;aspect-ratio:5/4;background:var(--soft)}
+  .pop-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+  .pop:hover .pop-img img{transform:scale(1.03)}
+  @media (prefers-reduced-motion: reduce){ .pop-img img{transition:none} }
+  .badge{position:absolute;top:8px;left:8px;z-index:1;background:var(--gold);color:#1e1f20;font-size:12.5px;font-weight:600;padding:2px 9px;border-radius:999px}
+  .pop-row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-weight:600;font-size:17px;line-height:1.3;margin-top:6px}
+  .pop-price{font-variant-numeric:tabular-nums;font-size:15px;white-space:nowrap}
+  .pop-desc{font-size:14.5px;color:var(--muted);line-height:1.4}
+  @media (max-width:520px){ .pop-row{flex-direction:column;gap:0} .pop-desc{display:none} }
+
+  /* Rodizio band */
+  .rodizio{background:var(--night);color:var(--on-night);border-top:0}
+  .rodizio .wrap{display:grid;gap:28px;grid-template-columns:1fr;align-items:center}
+  @media (min-width:900px){ .rodizio .wrap{grid-template-columns:1fr 1fr;gap:56px} }
+  .rodizio .kicker{color:var(--gold);font-weight:600;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
+  .rodizio h2{margin-top:8px}
+  .rodizio p{color:#d6cfc6;margin-top:14px;max-width:46ch}
+  .rodizio .days{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .rodizio .days span{border:1px solid #4a4c4f;border-radius:999px;padding:4px 14px;font-weight:600;font-size:15px}
+  .rodizio .days span.on{background:var(--gold);border-color:var(--gold);color:#1e1f20}
+  .rodizio .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+  .rodizio .btn.ghost{border-color:var(--on-night);color:var(--on-night)}
+  .rodizio .btn.ghost:hover{background:var(--on-night);color:var(--night)}
+  .shots{display:grid;grid-template-columns:1.3fr 1fr;gap:12px}
+  .shots img{width:100%;height:100%;object-fit:cover;border-radius:16px;aspect-ratio:3/4}
+  .shots img:first-child{aspect-ratio:auto}
+
+  /* Menu */
+  .chips{position:sticky;top:var(--header);z-index:20;background:var(--paper);border-bottom:1px solid var(--line);
+         display:flex;gap:8px;overflow-x:auto;padding:8px 20px;scrollbar-width:none;margin:0 -20px}
+  .chips::-webkit-scrollbar{display:none}
+  .chips a{flex:none;display:inline-flex;align-items:center;min-height:42px;padding:0 16px;border-radius:999px;background:var(--soft);
+           font-size:15px;font-weight:600;text-decoration:none}
+  .chips a:hover,.chips a.on{background:var(--ink);color:var(--paper)}
+  .menu{display:grid;gap:0 64px;grid-template-columns:1fr}
+  @media (min-width:900px){ .menu{grid-template-columns:1fr 1fr} }
+  .group{padding-top:28px;scroll-margin-top:calc(var(--header) + var(--chips) - 20px)}
+  .group h3{font-size:26px;font-weight:800;color:var(--flame);margin-bottom:2px}
+  .group h3 .pt{font-family:"Barlow",sans-serif;text-transform:none;font-size:15px;font-weight:500;letter-spacing:0}
+  .group ul{list-style:none}
+  .group li{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line);scroll-margin-top:calc(var(--header) + var(--chips) + 12px)}
+  .group li:last-child{border-bottom:0}
+  .group li:target{background:var(--soft);border-radius:10px;padding-left:10px;padding-right:10px}
+  .thumb{width:56px;height:56px;border-radius:10px;object-fit:cover;flex:none;margin-top:2px}
+  .row{flex:1;min-width:0}
+  .top{display:flex;align-items:baseline;gap:8px}
+  .name{font-weight:600}
+  .pt{font-weight:400;color:var(--muted);font-size:14px;margin-left:4px;font-style:italic}
+  .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px);min-width:12px}
+  .price{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .to{font-weight:400;color:var(--muted)}
+  .desc{display:block;color:var(--muted);font-size:15px;line-height:1.45;margin-top:2px}
+  .note{color:var(--muted);font-size:14.5px;margin-top:24px;max-width:70ch}
+
+  /* About + ratings */
+  .about{display:grid;gap:32px;grid-template-columns:1fr;align-items:center}
+  @media (min-width:900px){ .about{grid-template-columns:1.1fr .9fr;gap:56px} }
+  .about p{font-size:19px;line-height:1.55;max-width:46ch}
+  .about p + p{margin-top:12px;color:var(--muted);font-size:17px}
+  .about img{border-radius:18px;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px}
+  .stat{background:var(--soft);border-radius:16px;padding:18px 16px}
+  .stat b{display:block;font-family:"Barlow Condensed",sans-serif;font-size:clamp(30px,5vw,44px);line-height:1;font-weight:800}
+  .stat span{display:block;color:var(--muted);font-size:14.5px;margin-top:6px;line-height:1.35}
+  .stat .stars{display:block;color:var(--gold);font-size:15px;letter-spacing:1px;margin-bottom:2px}
+
+  /* Visit */
+  .visit{display:grid;gap:32px;grid-template-columns:1fr;align-items:start}
+  @media (min-width:900px){ .visit{grid-template-columns:1fr 1fr;gap:56px} }
+  .hours{width:100%;border-collapse:collapse}
+  .hours td{padding:10px 0;border-bottom:1px solid var(--line)}
+  .hours td:last-child{text-align:right}
+  .hours tr.today td{font-weight:700;color:var(--flame)}
+  .hours tr.closed td:last-child{color:var(--muted)}
+  .small{font-size:15px;color:var(--muted);margin-top:12px}
+  .storefront{border-radius:18px;overflow:hidden;margin-top:24px;aspect-ratio:3/2;background:var(--soft)}
+  .storefront img{width:100%;height:100%;object-fit:cover}
+  .place p{font-size:19px}
+  .place .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  .map{border-radius:18px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;margin-top:22px;background:var(--soft)}
+  .map iframe{width:100%;height:100%;border:0}
+
+  /* Footer */
+  footer{background:var(--night);color:#b9b2a9;padding:36px 0 44px;font-size:15px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;align-items:center}
+  footer nav{display:flex;flex-wrap:wrap;gap:4px 18px}
+  footer a{text-decoration:none;display:inline-flex;align-items:center;min-height:32px}
+  footer a:hover{color:#fff;text-decoration:underline}
+
+  /* Motion */
+  .hero-photo img{will-change:transform}
+  .group li.hl{background:var(--soft);border-radius:10px;padding-left:10px;padding-right:10px;transition:background .6s}
+  @media (prefers-reduced-motion: no-preference){
+    .dot.open{animation:pulse 2.4s ease-out infinite}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,154,85,.45)}70%{box-shadow:0 0 0 8px rgba(47,154,85,0)}100%{box-shadow:0 0 0 0 rgba(47,154,85,0)}}
+    .btn{transition:transform .2s ease, background .2s}
+    .btn:not(.magnetic):hover{transform:translateY(-2px)}
+    .btn:not(.magnetic):active{transform:translateY(0) scale(.97)}
+    .btn.magnetic{transition:background .2s}
+  }
+  .btn{position:relative;isolation:isolate}
+  .btn .rip{position:absolute;inset:0;border-radius:inherit;overflow:hidden;pointer-events:none;z-index:0}
+  .btn .rip i{position:absolute;width:500px;height:500px;margin:-250px 0 0 -250px;border-radius:50%;background:#fff;opacity:0;pointer-events:none}
+  .btn.ghost .rip i{background:currentColor}
+  .btn > .t{position:relative;z-index:1}
+
+  /* Phone action bar */
+  .bar{display:none}
+  @media (max-width:700px){
+    .bar{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;
+         padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--paper);border-top:1px solid var(--line)}
+    .bar .btn{padding:0 6px;font-size:15px}
+    body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#menu">Skip to menu</a>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Brazil Pizza, back to top"><img src="images/logo-mark.png" width="435" height="227" alt="Brazil Pizza"></a>
+    <nav class="nav" aria-label="Main">
+      <a class="hide" href="#menu">Menu</a>
+      <a class="hide" href="#rodizio">Rodízio</a>
+      <a class="hide" href="#visit">Hours and location</a>
+      <a class="btn gold sm" href="{{ORDER}}" target="_blank" rel="noopener">Order online</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="Welcome">
+    <div class="wrap">
+      <div>
+        <span class="status"><span class="dot" id="dot"></span><span id="status">Open Tuesday to Sunday</span></span>
+        <h1>Pizza the <em>Brazilian</em> way.</h1>
+        <p class="lead">Thin, crispy crust and toppings from back home, like catupiry, calabresa and hearts of palm. Plus sweet pizzas for dessert, right on Powers Ferry Road in Marietta.</p>
+        <div class="actions">
+          <a class="btn primary magnetic" href="{{ORDER}}" target="_blank" rel="noopener">Order pickup or delivery</a>
+          <a class="btn ghost magnetic" href="{{TEL}}">Call (404) 421-1426</a>
+        </div>
+        <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> 4.6 from 640+ Google reviews</p>
+      </div>
+      <div class="hero-photo">
+        <img src="images/hero.jpg" width="1269" height="640" alt="A Brazil Pizza pie topped with shredded beef, onion rings, cherry tomatoes and green olives, with a small Brazilian flag">
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="glance" aria-label="At a glance">
+      <a href="#visit"><span class="k">Today</span><span class="v" id="today">See our hours</span><span class="go">All hours</span></a>
+      <a href="{{MAPS}}" target="_blank" rel="noopener"><span class="k">Find us</span><span class="v">279 Powers Ferry Rd SE, Ste B, Marietta</span><span class="go">Get directions</span></a>
+      <a href="{{TEL}}"><span class="k">Call us</span><span class="v">(404) 421-1426</span><span class="go">Tap to call</span></a>
+    </div>
+  </div>
+
+  <section class="sec" id="popular" style="border-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Fresh from our oven</h2>
+        <a class="link" href="#menu">See the full menu</a>
+      </div>
+      <div class="pops">
+{{POPULAR}}
+      </div>
+    </div>
+  </section>
+
+  <section class="sec rodizio" id="rodizio">
+    <div class="wrap">
+      <div>
+        <span class="kicker">Thursday to Sunday</span>
+        <h2>Rodízio: all-you-can-eat pizza</h2>
+        <p>Can't pick one flavor? Try them all. Our rodízio lets you taste a wide range of savory and sweet Brazilian pizzas for one price, right at your table.</p>
+        <div class="days" aria-label="Rodízio days">
+          <span>Tue</span><span>Wed</span><span class="on">Thu</span><span class="on">Fri</span><span class="on">Sat</span><span class="on">Sun</span>
+        </div>
+        <div class="actions">
+          <a class="btn gold" href="{{TEL}}">Call for times and price</a>
+          <a class="btn ghost" href="{{INSTA}}" target="_blank" rel="noopener">See it on Instagram</a>
+        </div>
+      </div>
+      <div class="shots">
+        <img src="images/rodizio.jpg" width="1200" height="800" alt="Three Brazil Pizza pies side by side on a table, topped with onions, olives, basil and cheese" loading="lazy">
+        <img src="images/sweet-duo.jpg" width="640" height="512" alt="Two sweet pizzas: one with chocolate sprinkles and strawberries, one dusted with powdered milk" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="menu" style="border-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Menu</h2>
+        <p>Prices from our online ordering menu. Pizza prices depend on size.</p>
+      </div>
+      <nav class="chips" aria-label="Menu categories">
+{{CHIPS}}
+      </nav>
+      <div class="menu">
+{{MENU}}
+      </div>
+      <p class="note">Prices and dishes can change. Catupiry is a creamy Brazilian cheese, and calabresa is a Brazilian smoked sausage. Please tell us about any food allergies before you order. See our <a class="link" href="legal.html#allergens">allergen notice</a>.</p>
+      <p style="margin-top:20px"><a class="btn primary" href="{{ORDER}}" target="_blank" rel="noopener">Start an order</a></p>
+    </div>
+  </section>
+
+  <section class="sec" id="about">
+    <div class="wrap">
+      <div class="about">
+        <div>
+          <h2 style="margin-bottom:18px">Brazil, by the slice</h2>
+          <p>Brazil Pizza brings the authentic flavors of Brazil to Marietta. Every recipe comes from real pizzerias back home, and we bake with passion and a little bit of Brazilian soul.</p>
+          <p>Dine in, take out or get it delivered. Our dining room is open every day except Monday.</p>
+        </div>
+        <img src="images/dining.jpg" width="1200" height="800" alt="The Brazil Pizza dining room, with a wall of green plants, warm hanging lights and the Brazil Pizza sign" loading="lazy">
+      </div>
+      <div class="stats" aria-label="Ratings">
+        <div class="stat"><b>4.6</b><span><span class="stars" aria-hidden="true">★★★★★</span>640+ Google reviews</span></div>
+        <div class="stat"><b>4.5</b><span><span class="stars" aria-hidden="true">★★★★★</span>800+ Uber Eats ratings</span></div>
+        <div class="stat"><b>9.5K</b><span>Followers on <a class="link" href="{{INSTA}}" target="_blank" rel="noopener">Instagram</a></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit">
+    <div class="wrap">
+      <div class="sec-head"><h2>Hours and location</h2></div>
+      <div class="visit">
+        <div>
+          <table class="hours" id="hours" aria-label="Opening hours">
+            <tr data-d="1" class="closed"><td>Monday</td><td>Closed</td></tr>
+            <tr data-d="2"><td>Tuesday</td><td>2 pm to 10:30 pm</td></tr>
+            <tr data-d="3"><td>Wednesday</td><td>2 pm to 10:30 pm</td></tr>
+            <tr data-d="4"><td>Thursday</td><td>2 pm to 10:30 pm</td></tr>
+            <tr data-d="5"><td>Friday</td><td>2 pm to 10:30 pm</td></tr>
+            <tr data-d="6"><td>Saturday</td><td>2 pm to 10:30 pm</td></tr>
+            <tr data-d="0"><td>Sunday</td><td>5 pm to 10:30 pm</td></tr>
+          </table>
+          <p class="small">Rodízio Thursday to Sunday. Please call ahead on holidays.</p>
+          <div class="storefront"><img src="images/storefront.jpg" width="1200" height="800" alt="The Brazil Pizza storefront on Powers Ferry Road, with the sign above the door" loading="lazy"></div>
+        </div>
+        <div class="place">
+          <p>279 Powers Ferry Rd SE, Ste B<br>Marietta, GA 30067</p>
+          <div class="actions">
+            <a class="btn primary" href="{{MAPS}}" target="_blank" rel="noopener">Get directions</a>
+            <a class="btn ghost" href="{{TEL}}">(404) 421-1426</a>
+          </div>
+          <div class="map"><iframe loading="lazy" title="Map of Brazil Pizza on Powers Ferry Road" src="{{EMBED}}"></iframe></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Brazil Pizza, 279 Powers Ferry Rd SE, Ste B, Marietta, GA 30067</span>
+    <nav aria-label="Legal">
+      <a href="{{INSTA}}" target="_blank" rel="noopener">Instagram</a>
+      <a href="legal.html#privacy">Privacy</a>
+      <a href="legal.html#terms">Terms</a>
+      <a href="legal.html#accessibility">Accessibility</a>
+      <a href="legal.html#allergens">Allergens</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="bar" aria-label="Quick actions">
+  <a class="btn primary" href="{{ORDER}}" target="_blank" rel="noopener">Order</a>
+  <a class="btn ghost" href="{{TEL}}">Call</a>
+  <a class="btn ghost" href="{{MAPS}}" target="_blank" rel="noopener">Directions</a>
+</div>
+
+<script>
+  // Hours in Marietta (Eastern) time. Minutes after midnight; Sunday = 0. null = closed that day.
+  var HOURS = {0:[1020,1350],1:null,2:[840,1350],3:[840,1350],4:[840,1350],5:[840,1350],6:[840,1350]};
+  // Holiday exceptions: "YYYY-MM-DD": null (closed) or [open, close]. None known yet.
+  var SPECIAL = {};
+  var DAYS = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  function fmt(m){ var h=Math.floor(m/60), mi=m%60, h12=((h+11)%12)+1; return h12+(mi?":"+String(mi).padStart(2,"0"):"")+" "+(h<12?"am":"pm"); }
+  function key(d){ return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+  function hoursOn(d){ var k=key(d); return (k in SPECIAL) ? SPECIAL[k] : HOURS[d.getDay()]; }
+  try {
+    var now = new Date(new Date().toLocaleString("en-US",{timeZone:"America/New_York"}));
+    var mins = now.getHours()*60+now.getMinutes(), today = hoursOn(now), msg;
+    if (today && mins >= today[0] && mins < today[1]) { msg = "Open now, until " + fmt(today[1]); document.getElementById("dot").classList.add("open"); }
+    else if (today && mins < today[0]) { msg = "Closed now. Opens today at " + fmt(today[0]); }
+    else {
+      msg = "Closed now";
+      for (var i=1;i<=7;i++){ var d=new Date(now); d.setDate(now.getDate()+i); var h=hoursOn(d);
+        if (h){ msg += ". Opens " + (i===1 ? "tomorrow" : DAYS[d.getDay()]) + " at " + fmt(h[0]); break; } }
+    }
+    document.getElementById("status").textContent = msg;
+    document.getElementById("today").textContent = today ? (DAYS[now.getDay()] + ", " + fmt(today[0]) + " to " + fmt(today[1])) : (DAYS[now.getDay()] + ", closed");
+    var row = document.querySelector('#hours tr[data-d="'+now.getDay()+'"]'); if (row) row.classList.add("today");
+    document.getElementById("yr").textContent = now.getFullYear();
+  } catch(e) {}
+
+  // Highlight the menu category you're looking at, and keep its chip in view (single-column layout only)
+  if (window.matchMedia("(max-width: 899px)").matches) try {
+    var chips = document.querySelectorAll(".chips a"), map = {};
+    chips.forEach(function(c){ map[c.getAttribute("href").slice(1)] = c; });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        chips.forEach(function(c){ c.classList.remove("on"); c.removeAttribute("aria-current"); });
+        var c = map[en.target.id]; if (!c) return;
+        c.classList.add("on"); c.setAttribute("aria-current","true");
+        c.parentNode.scrollTo({left: c.offsetLeft - 20, behavior: "smooth"});
+      });
+    }, {rootMargin: "-130px 0px -60% 0px"});
+    document.querySelectorAll(".group").forEach(function(g){ io.observe(g); });
+  } catch(e) {}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script src="https://unpkg.com/lenis@1.3.27/dist/lenis.min.js"></script>
+<script>
+  // Motion: smooth scrolling (Lenis) + entrance and scroll reveals (GSAP).
+  // If these libraries fail to load, the page simply shows everything with no animation.
+  (function(){
+    if (!window.gsap || !window.ScrollTrigger) return;
+    gsap.registerPlugin(ScrollTrigger, window.SplitText);
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (window.Lenis && !reduce) {
+      var lenis = new Lenis({ lerp: 0.12 });
+      lenis.on("scroll", ScrollTrigger.update);
+      gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
+      gsap.ticker.lagSmoothing(0);
+      document.addEventListener("click", function(e){
+        var a = e.target.closest && e.target.closest('a[href^="#"]'); if (!a) return;
+        var el = document.querySelector(a.getAttribute("href")); if (!el) return;
+        e.preventDefault();
+        var y = el.getBoundingClientRect().top + window.scrollY - (parseFloat(getComputedStyle(el).scrollMarginTop) || 0);
+        var t = gsap.getProperty(el, "y"); if (t) y -= t;
+        lenis.scrollTo(Math.max(0, y), { duration: 1.1, easing: function(x){ return 1 - Math.pow(1 - x, 4); } });
+        if (history.replaceState) history.replaceState(null, "", a.getAttribute("href"));
+      });
+    }
+
+    document.querySelectorAll(".pop").forEach(function(a){
+      a.addEventListener("click", function(){
+        var li = document.querySelector(a.getAttribute("href")); if (!li) return;
+        li.classList.add("hl"); setTimeout(function(){ li.classList.remove("hl"); }, 2200);
+      });
+    });
+
+    var mm = gsap.matchMedia();
+    mm.add("(prefers-reduced-motion: no-preference)", function(){
+      var photo = document.querySelector(".hero-photo img");
+      var tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      tl.from(".hero .status", { y: 12, opacity: 0, duration: 0.5 })
+        .fromTo(".hero-photo", { clipPath: "inset(10% 10% 10% 10% round 22px)" },
+                               { clipPath: "inset(0% 0% 0% 0% round 22px)", duration: 1.2, ease: "power3.inOut" }, 0.1)
+        .from(photo, { scale: 1.3, duration: 1.6 }, 0.1)
+        .from(".hero .lead, .hero .actions, .hero .rating", { y: 18, opacity: 0, duration: 0.7, stagger: 0.08 }, 0.5)
+        .from(".glance", { y: 24, opacity: 0, duration: 0.7 }, 0.75);
+
+      if (window.SplitText) {
+        SplitText.create(".hero h1", { type: "lines", mask: "lines", autoSplit: true,
+          onSplit: function(self){ return gsap.from(self.lines, { yPercent: 110, duration: 0.9, ease: "power4.out", stagger: 0.09, delay: 0.1 }); } });
+      }
+
+      document.querySelectorAll(".btn").forEach(function(btn){
+        var wrap = document.createElement("span"); wrap.className = "rip"; wrap.setAttribute("aria-hidden","true");
+        var label = document.createElement("span"); label.className = "t";
+        while (btn.firstChild) label.appendChild(btn.firstChild);
+        btn.appendChild(wrap); btn.appendChild(label);
+        btn.addEventListener("pointerdown", function(ev){
+          var r = btn.getBoundingClientRect(), dot = document.createElement("i");
+          dot.style.left = (ev.clientX - r.left) + "px"; dot.style.top = (ev.clientY - r.top) + "px";
+          wrap.appendChild(dot);
+          gsap.fromTo(dot, { scale: 0, opacity: 0.35 }, { scale: 1, opacity: 0, duration: 0.5, ease: "power2.out", onComplete: function(){ dot.remove(); } });
+          if (!btn.classList.contains("magnetic")) gsap.fromTo(btn, { scale: 0.95 }, { scale: 1, duration: 0.35, ease: "back.out(3)" });
+        });
+      });
+
+      if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        document.querySelectorAll(".btn.magnetic").forEach(function(btn){
+          btn.addEventListener("mousemove", function(ev){
+            var r = btn.getBoundingClientRect();
+            gsap.to(btn, { x: (ev.clientX - r.left - r.width/2) * 0.12, y: (ev.clientY - r.top - r.height/2) * 0.2, scale: 1.03, duration: 0.4, ease: "power3.out" });
+          });
+          btn.addEventListener("mouseleave", function(){ gsap.to(btn, { x: 0, y: 0, scale: 1, duration: 0.7, ease: "elastic.out(1, 0.45)" }); });
+        });
+      }
+
+      gsap.fromTo(photo, { yPercent: -4 }, { yPercent: 4, ease: "none",
+        scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+
+      gsap.utils.toArray(".sec-head, .rodizio h2, .about h2").forEach(function(h){
+        gsap.from(h, { y: 28, opacity: 0, duration: 0.8, scrollTrigger: { trigger: h, start: "top 90%", once: true } });
+      });
+      gsap.from(".pop", { y: 40, opacity: 0, duration: 0.7, stagger: 0.08,
+        scrollTrigger: { trigger: ".pops", start: "top 85%", once: true } });
+      gsap.from(".shots img", { y: 40, opacity: 0, duration: 0.8, stagger: 0.12,
+        scrollTrigger: { trigger: ".shots", start: "top 85%", once: true } });
+      gsap.from(".rodizio .days span", { scale: 0.6, opacity: 0, duration: 0.4, stagger: 0.05, ease: "back.out(2)",
+        scrollTrigger: { trigger: ".rodizio .days", start: "top 90%", once: true } });
+      gsap.utils.toArray(".group").forEach(function(g){
+        gsap.from(g.querySelectorAll("h3, li"), { y: 16, opacity: 0, duration: 0.5, stagger: 0.03,
+          scrollTrigger: { trigger: g, start: "top 92%", once: true } });
+      });
+      gsap.from(".stat", { y: 24, opacity: 0, duration: 0.6, stagger: 0.1,
+        scrollTrigger: { trigger: ".stats", start: "top 90%", once: true } });
+      gsap.from(".visit > *", { y: 24, opacity: 0, duration: 0.7, stagger: 0.12,
+        scrollTrigger: { trigger: ".visit", start: "top 88%", once: true } });
+    });
+
+    document.fonts && document.fonts.ready.then(function(){ ScrollTrigger.refresh(); });
+    window.addEventListener("load", function(){ ScrollTrigger.refresh(); });
+  })();
+</script>
+</body>
+</html>
