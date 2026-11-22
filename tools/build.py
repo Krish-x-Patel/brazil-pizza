@@ -84,57 +84,105 @@ MENU = [
  ]),
 ]
 
-# Dishes shown with photos at the top (all photos are the restaurant's own, from its Google listing)
-POPULAR = [("Nordestina", "Brazilian favorite"), ("Margherita", ""), ("Calabresa", ""),
-           ("Strawberry with Nutella", "Sweet pizza"), ("Banana with Nutella", "Sweet pizza"), ("Garlic bread", "")]
+# Signature pies for the photo carousel (all photos are the restaurant's own, from its Google listing)
+SIGNATURE = [("Nordestina", "From Brazil's northeast"), ("Calabresa", "The Brazilian classic"),
+             ("Margherita", "Simple and fresh"), ("Garlic bread", "Start here")]
+SWEET = ["Strawberry with Nutella", "Banana with Nutella"]
 
+# Menu tabs: tab id, label, the MENU groups shown in it
+TABS = [("tab-savory", "Savory", ["savory"]), ("tab-sweet", "Sweet", ["sweet"]),
+        ("tab-more", "Combos, calzones and sides", ["deal", "half", "calzone", "apps"]), ("tab-drinks", "Drinks", ["drinks"])]
+
+GROUPS = {g[0]: g for g in MENU}
 ITEMS = {i[0]: i for g in MENU for i in g[3]}
 e = html.escape
 
+
 def money(p):
     if "-" in p:
-        a, b = p.split("-")
-        return f'${a}<span class="to"> to </span>${b}'
+        return f'<small>from</small> ${p.split("-")[0]}'
     return f"${p}"
 
-def slug(s): return "".join(c if c.isalnum() else "-" for c in s.lower()).strip("-")
 
-def popular_html():
+def full_money(p):
+    if "-" in p:
+        a, b = p.split("-")
+        return f"${a} to ${b}, by size"
+    return f"${p}"
+
+
+def slug(s):
+    return "".join(c if c.isalnum() else "-" for c in s.lower()).strip("-")
+
+
+def tab_of(name):
+    for tid, _, gids in TABS:
+        for gid in gids:
+            if any(i[0] == name for i in GROUPS[gid][3]):
+                return tid
+    return TABS[0][0]
+
+
+def signature_html():
     out = []
-    for name, badge in POPULAR:
+    for name, tag in SIGNATURE:
         n, pt, price, desc, img = ITEMS[name]
-        b = f'<span class="badge">{e(badge)}</span>' if badge else ''
-        out.append(f'''        <a class="pop" href="#item-{slug(n)}">
-          <span class="pop-img">{b}<img src="images/{img}.jpg" alt="{e(n)} pizza from Brazil Pizza" width="640" height="512" loading="lazy"></span>
-          <span class="pop-row"><span class="pop-name">{e(n)}</span><span class="pop-price">{money(price)}</span></span>
-          <span class="pop-desc">{e(desc)}</span>
-        </a>''')
+        out.append(
+            f'        <a class="sig" href="#item-{slug(n)}" data-tab="{tab_of(n)}">\n'
+            f'          <img src="images/{img}.jpg" alt="{e(n)} from Brazil Pizza" width="640" height="512" loading="lazy">\n'
+            f'          <span class="sig-tag">{e(tag)}</span>\n'
+            f'          <span class="sig-body"><span class="sig-name">{e(n)}</span><span class="sig-desc">{e(desc)}</span>'
+            f'<span class="sig-price">{money(price)}</span></span>\n'
+            f'        </a>')
     return "\n".join(out)
 
-def menu_html():
-    # Two desktop columns: savory side on the left, everything else on the right
-    left = {"deal", "savory", "half"}
-    cols = [[g for g in MENU if g[0] in left], [g for g in MENU if g[0] not in left]]
+
+def sweet_html():
     out = []
-    for col in cols:
-        out.append('        <div class="menu-col">')
-        for gid, title, note, items in col:
-            nt = f' <span class="pt" lang="pt-BR">{e(note)}</span>' if note else ''
-            out.append(f'          <div class="group" id="{gid}">\n            <h3>{e(title)}{nt}</h3>\n            <ul>')
-            for n, pt, price, desc, img in items:
-                th = f'<img class="thumb" src="images/{img}.jpg" alt="" width="56" height="56" loading="lazy">' if img else ''
-                pt_html = f' <span class="pt" lang="pt-BR">{e(pt)}</span>' if pt else ''
-                d = f'<span class="desc">{e(desc)}</span>' if desc else ''
-                out.append(f'              <li id="item-{slug(n)}" class="{"has-thumb" if img else ""}">{th}<div class="row"><div class="top"><span class="name">{e(n)}{pt_html}</span><span class="dots" aria-hidden="true"></span><span class="price">{money(price)}</span></div>{d}</div></li>')
-            out.append('            </ul>\n          </div>')
-        out.append('        </div>')
+    for name in SWEET:
+        n, pt, price, desc, img = ITEMS[name]
+        out.append(
+            f'          <a class="sweet-card" href="#item-{slug(n)}" data-tab="tab-sweet">'
+            f'<img src="images/{img}.jpg" alt="{e(n)} sweet pizza from Brazil Pizza" width="640" height="512" loading="lazy">'
+            f'<span class="sweet-cap"><b>{e(n)}</b><span>{money(price)}</span></span></a>')
     return "\n".join(out)
 
-chips = "\n".join(f'        <a href="#{gid}">{e(t)}</a>' for gid, t, _, _ in MENU)
+
+def item_html(it):
+    n, pt, price, desc, img = it
+    ph = f'<img class="it-img" src="images/{img}.jpg" alt="" width="640" height="512" loading="lazy">' if img else ''
+    ptx = f'<span class="pt" lang="pt-BR">{e(pt)}</span>' if pt else ''
+    d = f'<p class="desc">{e(desc)}</p>' if desc else ''
+    return (f'<li class="item{" has-img" if img else ""}" id="item-{slug(n)}">{ph}<div class="it-body">'
+            f'<h4>{e(n)}</h4>{ptx}{d}<span class="tag" title="{e(full_money(price))}">{money(price)}</span></div></li>')
+
+
+def tabs_html():
+    btns = []
+    for k, (tid, label, _) in enumerate(TABS):
+        sel = "true" if k == 0 else "false"
+        ti = "" if k == 0 else ' tabindex="-1"'
+        btns.append(f'        <button type="button" role="tab" id="{tid}-btn" aria-controls="{tid}" aria-selected="{sel}"{ti}>{e(label)}</button>')
+    panels = []
+    for tid, label, gids in TABS:
+        parts = []
+        for gid in gids:
+            _, title, note, items = GROUPS[gid]
+            nt = f' <span class="pt" lang="pt-BR">{e(note)}</span>' if note else ''
+            cls = '' if len(gids) > 1 else ' class="sr"'
+            lis = "\n".join("            " + item_html(it) for it in items)
+            parts.append(f'          <h3 id="{gid}"{cls}>{e(title)}{nt}</h3>\n          <ul class="items">\n{lis}\n          </ul>')
+        panels.append(f'        <div class="panel" role="tabpanel" id="{tid}" aria-labelledby="{tid}-btn" tabindex="0">\n'
+                      + "\n".join(parts) + '\n        </div>')
+    return "\n".join(btns), "\n".join(panels)
+
+
+btns, panels = tabs_html()
 
 os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 TEMPLATE = open('tools/template.html', encoding='utf-8').read()
-page = (TEMPLATE.replace('{{POPULAR}}', popular_html()).replace('{{MENU}}', menu_html()).replace('{{CHIPS}}', chips)
+page = (TEMPLATE.replace('{{SIGNATURE}}', signature_html()).replace('{{SWEET}}', sweet_html())
+        .replace('{{TABS}}', btns).replace('{{PANELS}}', panels)
         .replace('{{ORDER}}', ORDER).replace('{{MAPS}}', MAPS).replace('{{EMBED}}', EMBED).replace('{{TEL}}', TEL)
         .replace('{{INSTA}}', INSTA))
 assert '{{' not in page

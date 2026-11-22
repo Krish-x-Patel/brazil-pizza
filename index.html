@@ -7,12 +7,11 @@
 <meta name="description" content="Authentic Brazilian-style pizza, savory and sweet, plus all-you-can-eat rodízio Thursday to Sunday. 279 Powers Ferry Rd SE, Marietta, GA. Call (404) 421-1426 or order online.">
 <!-- Remove the next line to let search engines list the site. -->
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#1e1f20">
+<meta name="theme-color" content="#0b7a3e">
 <link rel="icon" href="images/logo-mark.png">
-<link rel="stylesheet" href="https://unpkg.com/lenis@1.3.27/dist/lenis.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Restaurant","name":"Brazil Pizza","servesCuisine":["Brazilian","Pizza"],
  "telephone":"+1-404-421-1426","priceRange":"$$","image":"images/hero.jpg","menu":"https://orderbrazilpizza.square.site/",
@@ -23,221 +22,279 @@
   {"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"17:00","closes":"22:30"}]}
 </script>
 <style>
+  /* Brand: Brazil green and yellow, the logo's flame orange, the logo's charcoal, warm wood-oven browns */
   :root{
-    --paper:#f7f3ec; --soft:#efe8dc; --ink:#1e1f20; --muted:#5f5a54;
-    --flame:#c2410c; --flame-dark:#9a3412; --gold:#f4a12a; --green:#13703f;
-    --line:#e2d9cb; --on-flame:#fff; --night:#1e1f20; --on-night:#f7f3ec;
-    --header:64px; --chips:58px;
+    --paper:#fffaf0; --card:#ffffff; --soft:#fff1cc; --ink:#1e1f20; --muted:#5c564e; --line:#f0e2c2;
+    --green:#0b7a3e; --green-deep:#075a2d; --yellow:#ffd23f; --flame:#e8551d; --flame-ink:#b83c0d;
+    --choc:#3a2216; --char:#1e1f20; --on-dark:#fffaf0;
+    --header:70px; --r:26px;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --paper:#161718; --soft:#222325; --ink:#f3eee7; --muted:#b4ada4;
-      --flame:#f08a3a; --flame-dark:#f59e52; --green:#4fbf7d; --line:#323436; --on-flame:#1e1f20;
+      --paper:#141512; --card:#1f201c; --soft:#2a2a21; --ink:#f6f0e3; --muted:#bdb5a6; --line:#34352d; --flame-ink:#ff8a52;
     }
   }
   :root[data-theme="dark"]{
-    --paper:#161718; --soft:#222325; --ink:#f3eee7; --muted:#b4ada4;
-    --flame:#f08a3a; --flame-dark:#f59e52; --green:#4fbf7d; --line:#323436; --on-flame:#1e1f20;
+    --paper:#141512; --card:#1f201c; --soft:#2a2a21; --ink:#f6f0e3; --muted:#bdb5a6; --line:#34352d; --flame-ink:#ff8a52;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
-  body{background:var(--paper);color:var(--ink);font-family:"Barlow",system-ui,sans-serif;font-size:17px;line-height:1.55}
+  body{background:var(--paper);color:var(--ink);font-family:"Nunito",system-ui,sans-serif;font-size:17px;line-height:1.55;overflow-x:hidden}
   a{color:inherit}
-  img{display:block;max-width:100%}
-  :focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-  .skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:8px;z-index:99}
+  img{display:block;max-width:100%;height:auto}
+  :focus-visible{outline:3px solid var(--flame);outline-offset:3px;border-radius:8px}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--char);color:#fff;padding:8px 14px;border-radius:10px;z-index:99}
   .skip:focus{left:8px}
-  h1,h2,h3,.cond{font-family:"Barlow Condensed","Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.01em}
-  h2{font-weight:800;font-size:clamp(32px,5vw,48px);line-height:1}
-  .sec{padding:60px 0;border-top:1px solid var(--line);scroll-margin-top:var(--header)}
-  .sec-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;margin-bottom:26px}
-  .sec-head p{color:var(--muted)}
-  .link{color:var(--flame);font-weight:600;text-decoration:none}
-  .link:hover{text-decoration:underline}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  h1,h2,h3,h4,.round{font-family:"Fredoka","Nunito",system-ui,sans-serif;font-weight:600;letter-spacing:-.01em}
+  h2{font-size:clamp(34px,5.4vw,56px);line-height:1}
+  .kick{display:inline-block;font-family:"Fredoka",sans-serif;font-weight:600;font-size:15px;letter-spacing:.04em;text-transform:uppercase;
+        padding:4px 12px;border-radius:999px;background:var(--yellow);color:var(--char)}
+  section{scroll-margin-top:var(--header)}
 
-  /* Header: always the brand's charcoal, so the logo sits on its own background */
-  header{position:sticky;top:0;z-index:30;background:var(--night);color:var(--on-night)}
-  header .wrap{display:flex;align-items:center;justify-content:space-between;height:var(--header);gap:16px}
-  .brand{display:flex;align-items:center;text-decoration:none}
-  .brand img{height:44px;width:auto}
-  .nav{display:flex;align-items:center;gap:22px;font-size:16px;font-weight:500}
-  .nav a{text-decoration:none;color:#cfc8bf}
-  .nav a:hover{color:#fff}
-  .nav .btn{color:#1e1f20}
-  @media (max-width:860px){ .nav .hide{display:none} }
+  /* Buttons: chunky, rounded, with a hard shadow like a sticker */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 26px;border-radius:999px;
+       font-family:"Fredoka",sans-serif;font-weight:600;font-size:18px;text-decoration:none;white-space:nowrap;border:2.5px solid var(--char);
+       box-shadow:0 4px 0 var(--char);transition:transform .15s, box-shadow .15s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--char)}
+  .btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--char)}
+  @media (prefers-reduced-motion: reduce){ .btn{transition:none} .btn:hover,.btn:active{transform:none} }
+  .btn.yellow{background:var(--yellow);color:var(--char)}
+  .btn.flame{background:var(--flame);color:#fff}
+  .btn.white{background:#fff;color:var(--char)}
+  .btn.sm{min-height:44px;padding:0 18px;font-size:16px;box-shadow:0 3px 0 var(--char)}
 
-  /* Buttons */
-  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:999px;
-       font-weight:600;font-size:16px;text-decoration:none;white-space:nowrap}
-  .btn.primary{background:var(--flame);color:var(--on-flame)}
-  .btn.primary:hover{background:var(--flame-dark)}
-  .btn.gold{background:var(--gold);color:#1e1f20}
-  .btn.gold:hover{background:#f7b552}
-  .btn.ghost{border:1.5px solid var(--ink);color:var(--ink)}
-  .btn.ghost:hover{background:var(--ink);color:var(--paper)}
-  .btn.sm{min-height:44px;padding:0 18px;font-size:15px}
+  /* Top strip */
+  .strip{background:var(--char);color:var(--on-dark);font-size:14.5px;font-weight:700;text-align:center;padding:8px 16px}
+  .strip b{color:var(--yellow)}
 
-  /* Hero */
-  .hero{padding:36px 0 28px}
-  .hero .wrap{display:grid;gap:24px;align-items:center;grid-template-columns:1fr}
-  @media (min-width:900px){ .hero{padding:56px 0 40px} .hero .wrap{grid-template-columns:.9fr 1.1fr;gap:48px} }
-  .status{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;background:var(--soft);padding:6px 12px;border-radius:999px}
-  .dot{width:9px;height:9px;border-radius:50%;background:#a39a92}
-  .dot.open{background:#2f9a55}
-  h1{font-weight:800;font-size:clamp(46px,7.4vw,84px);line-height:.92;margin-top:14px;max-width:11ch}
-  h1 em{font-style:normal;color:var(--flame)}
-  .hero p.lead{color:var(--muted);font-size:18px;margin-top:16px;max-width:42ch}
-  .hero .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px}
-  .rating{margin-top:16px;font-size:15px;color:var(--muted)}
-  .rating .stars{color:var(--gold);letter-spacing:1px}
-  .hero-photo{border-radius:22px;overflow:hidden;aspect-ratio:1.98/1;background:var(--soft)}
-  .hero-photo img{width:100%;height:100%;object-fit:cover}
-  @media (max-width:899px){ .hero-photo{aspect-ratio:16/10} }
+  /* Header */
+  header{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:2.5px solid var(--char)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:var(--header);gap:14px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .brand span.badge{background:var(--char);border-radius:14px;padding:6px 10px;display:block}
+  .brand img{height:38px;width:auto}
+  .nav{display:flex;align-items:center;gap:6px}
+  .nav a.pill{text-decoration:none;font-family:"Fredoka",sans-serif;font-weight:600;font-size:16px;padding:8px 14px;border-radius:999px}
+  .nav a.pill:hover{background:var(--soft)}
+  @media (max-width:880px){ .nav a.pill{display:none} }
 
-  /* At a glance */
-  .glance{display:grid;grid-template-columns:1fr;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:8px}
-  @media (min-width:760px){ .glance{grid-template-columns:repeat(3,1fr)} }
-  .glance a{display:flex;flex-direction:column;gap:2px;padding:16px 20px;text-decoration:none;min-height:76px;justify-content:center}
-  .glance a + a{border-top:1px solid var(--line)}
-  @media (min-width:760px){ .glance a + a{border-top:0;border-left:1px solid var(--line)} }
-  .glance a:hover{background:var(--soft)}
-  .glance .k{font-size:14px;color:var(--muted)}
-  .glance .v{font-weight:600;font-size:17px}
-  .glance .go{color:var(--flame);font-size:15px;font-weight:600}
+  /* Hero: green, with a round pizza and a spinning stamp */
+  .hero{background:var(--green);color:#fff;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;opacity:.13;pointer-events:none;
+     background-image:radial-gradient(circle at 20% 30%, var(--yellow) 0 3px, transparent 4px),radial-gradient(circle at 70% 80%, var(--yellow) 0 3px, transparent 4px);
+     background-size:90px 90px, 130px 130px}
+  .hero .wrap{position:relative;display:grid;gap:28px;grid-template-columns:1fr;align-items:center;padding-top:40px;padding-bottom:90px}
+  @media (min-width:920px){ .hero .wrap{grid-template-columns:1.05fr .95fr;gap:40px;padding-top:64px;padding-bottom:120px} }
+  .status{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:15px;background:rgba(0,0,0,.22);padding:7px 14px;border-radius:999px}
+  .dot{width:10px;height:10px;border-radius:50%;background:#c9c2b8}
+  .dot.open{background:var(--yellow)}
+  h1{font-size:clamp(48px,8.2vw,96px);line-height:.92;margin-top:18px;font-weight:700}
+  h1 .y{color:var(--yellow);display:block}
+  .hero .lead{font-size:19px;margin-top:18px;max-width:40ch;color:#eaf6ee}
+  .hero .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+  .hero .rating{margin-top:18px;font-weight:700;font-size:15.5px;color:#eaf6ee}
+  .hero .rating .stars{color:var(--yellow);letter-spacing:2px}
+  .plate{position:relative;justify-self:center;width:min(100%,500px);aspect-ratio:1}
+  .plate .pie{position:absolute;inset:6%;border-radius:50%;overflow:hidden;border:10px solid var(--yellow);box-shadow:0 18px 0 rgba(0,0,0,.22)}
+  .plate .pie img{width:100%;height:100%;object-fit:cover;object-position:40% 50%}
+  .stamp{position:absolute;right:-2%;top:-2%;width:34%;aspect-ratio:1}
+  .stamp svg{width:100%;height:100%}
+  .stamp .ring{animation:spin 18s linear infinite;transform-origin:50% 50%}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion: reduce){ .stamp .ring{animation:none} }
+  .wave{position:absolute;left:0;right:0;bottom:-1px;height:60px;color:var(--yellow)}
+  .wave svg{width:100%;height:100%;display:block}
 
-  /* Popular */
-  .pops{display:grid;gap:24px 16px;grid-template-columns:repeat(2,1fr)}
-  @media (min-width:760px){ .pops{grid-template-columns:repeat(3,1fr);gap:30px 22px} }
-  .pop{text-decoration:none;display:flex;flex-direction:column;gap:4px}
-  .pop-img{position:relative;display:block;border-radius:14px;overflow:hidden;aspect-ratio:5/4;background:var(--soft)}
-  .pop-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
-  .pop:hover .pop-img img{transform:scale(1.03)}
-  @media (prefers-reduced-motion: reduce){ .pop-img img{transition:none} }
-  .badge{position:absolute;top:8px;left:8px;z-index:1;background:var(--gold);color:#1e1f20;font-size:12.5px;font-weight:600;padding:2px 9px;border-radius:999px}
-  .pop-row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-weight:600;font-size:17px;line-height:1.3;margin-top:6px}
-  .pop-price{font-variant-numeric:tabular-nums;font-size:15px;white-space:nowrap}
-  .pop-desc{font-size:14.5px;color:var(--muted);line-height:1.4}
-  @media (max-width:520px){ .pop-row{flex-direction:column;gap:0} .pop-desc{display:none} }
+  /* Topping ticker */
+  .ticker{background:var(--yellow);color:var(--char);border-bottom:2.5px solid var(--char);overflow:hidden;white-space:nowrap}
+  .ticker .track{display:inline-flex;gap:34px;padding:12px 0;font-family:"Fredoka",sans-serif;font-weight:600;font-size:20px;animation:slide 38s linear infinite}
+  .ticker .track span::after{content:"✦";margin-left:34px;color:var(--flame)}
+  @keyframes slide{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion: reduce){ .ticker .track{animation:none} }
 
-  /* Rodizio band */
-  .rodizio{background:var(--night);color:var(--on-night);border-top:0}
-  .rodizio .wrap{display:grid;gap:28px;grid-template-columns:1fr;align-items:center}
-  @media (min-width:900px){ .rodizio .wrap{grid-template-columns:1fr 1fr;gap:56px} }
-  .rodizio .kicker{color:var(--gold);font-weight:600;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
-  .rodizio h2{margin-top:8px}
-  .rodizio p{color:#d6cfc6;margin-top:14px;max-width:46ch}
-  .rodizio .days{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-  .rodizio .days span{border:1px solid #4a4c4f;border-radius:999px;padding:4px 14px;font-weight:600;font-size:15px}
-  .rodizio .days span.on{background:var(--gold);border-color:var(--gold);color:#1e1f20}
-  .rodizio .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
-  .rodizio .btn.ghost{border-color:var(--on-night);color:var(--on-night)}
-  .rodizio .btn.ghost:hover{background:var(--on-night);color:var(--night)}
-  .shots{display:grid;grid-template-columns:1.3fr 1fr;gap:12px}
-  .shots img{width:100%;height:100%;object-fit:cover;border-radius:16px;aspect-ratio:3/4}
-  .shots img:first-child{aspect-ratio:auto}
+  /* Quick facts */
+  .facts{display:grid;gap:14px;grid-template-columns:1fr;margin:40px auto 0}
+  @media (min-width:760px){ .facts{grid-template-columns:repeat(3,1fr)} }
+  .fact{display:flex;flex-direction:column;gap:2px;background:var(--card);border:2.5px solid var(--char);border-radius:20px;padding:16px 20px;text-decoration:none;box-shadow:0 5px 0 var(--char)}
+  .fact:hover{background:var(--soft)}
+  .fact .k{font-size:14px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+  .fact .v{font-family:"Fredoka",sans-serif;font-weight:600;font-size:20px}
+  .fact .go{color:var(--flame-ink);font-weight:800;font-size:15px}
+
+  /* Signature carousel */
+  .sigs-sec{padding:70px 0 40px}
+  .sec-top{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:14px;margin-bottom:24px}
+  .sec-top p{color:var(--muted);max-width:44ch;margin-top:10px}
+  .arrows{display:flex;gap:10px}
+  .arrows button{width:48px;height:48px;border-radius:50%;border:2.5px solid var(--char);background:var(--card);color:var(--ink);font-size:22px;cursor:pointer;box-shadow:0 3px 0 var(--char)}
+  .arrows button:hover{background:var(--yellow);color:var(--char)}
+  .sigs{display:grid;grid-auto-flow:column;grid-auto-columns:min(78%,340px);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 20px 18px;
+        margin:0 -20px;scrollbar-width:none;scroll-padding-inline:20px}
+  .sigs::-webkit-scrollbar{display:none}
+  @media (min-width:1000px){ .sigs{grid-auto-columns:calc((100% - 54px)/4);overflow:visible;margin:0;padding:6px 0 18px} .arrows{display:none} }
+  .sig{scroll-snap-align:start;position:relative;display:flex;flex-direction:column;text-decoration:none;background:var(--card);
+       border:2.5px solid var(--char);border-radius:var(--r);overflow:hidden;box-shadow:0 6px 0 var(--char);transition:transform .2s}
+  .sig:hover{transform:rotate(-1.2deg) translateY(-4px)}
+  @media (prefers-reduced-motion: reduce){ .sig{transition:none} .sig:hover{transform:none} }
+  .sig img{aspect-ratio:1;object-fit:cover;width:100%;border-bottom:2.5px solid var(--char)}
+  .sig-tag{position:absolute;top:12px;left:12px;background:var(--yellow);color:var(--char);font-weight:800;font-size:13px;padding:3px 10px;border-radius:999px;border:2px solid var(--char)}
+  .sig-body{display:flex;flex-direction:column;gap:4px;padding:14px 16px 18px}
+  .sig-name{font-family:"Fredoka",sans-serif;font-weight:600;font-size:23px;line-height:1.1}
+  .sig-desc{color:var(--muted);font-size:15px;line-height:1.4}
+  .sig-price{font-weight:800;color:var(--green)}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .sig-price{color:#5fd393} }
+  .sig-price small,.tag small{font-weight:700;font-size:.8em;opacity:.8}
+
+  /* Sweet band */
+  .sweet{background:var(--choc);color:var(--on-dark);position:relative;overflow:hidden;padding:76px 0}
+  .sweet::before{content:"";position:absolute;inset:0;opacity:.14;pointer-events:none;
+    background-image:linear-gradient(35deg,transparent 46%,#c9875a 46% 54%,transparent 54%),linear-gradient(-50deg,transparent 46%,#f2c6a0 46% 54%,transparent 54%),linear-gradient(80deg,transparent 46%,#8c4f2b 46% 54%,transparent 54%);
+    background-size:46px 18px,60px 22px,38px 26px;background-position:0 0,17px 9px,30px 4px}
+  .sweet .wrap{position:relative;display:grid;gap:36px;grid-template-columns:1fr;align-items:center}
+  @media (min-width:920px){ .sweet .wrap{grid-template-columns:1fr 1.1fr;gap:56px} }
+  .sweet h2 .y{color:var(--yellow)}
+  .sweet p{margin-top:16px;max-width:44ch;color:#f1e2d4;font-size:18px}
+  .sweet .flavors{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .sweet .flavors span{border:2px solid #f1e2d4;border-radius:999px;padding:3px 12px;font-weight:700;font-size:14.5px}
+  .sweet .actions{margin-top:26px}
+  .polaroids{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+  .sweet-card{display:block;background:#fff;color:var(--char);padding:10px 10px 14px;border-radius:10px;text-decoration:none;box-shadow:0 14px 30px rgba(0,0,0,.35);transition:transform .25s}
+  .sweet-card:nth-child(1){transform:rotate(-4deg)}
+  .sweet-card:nth-child(2){transform:rotate(3deg);margin-top:40px}
+  .sweet-card:hover{transform:rotate(0) scale(1.03)}
+  @media (prefers-reduced-motion: reduce){ .sweet-card{transition:none} }
+  .sweet-card img{aspect-ratio:1;object-fit:cover;width:100%;border-radius:4px}
+  .sweet-cap{display:flex;flex-direction:column;margin-top:10px;font-size:15px;line-height:1.3}
+  .sweet-cap b{font-family:"Fredoka",sans-serif;font-weight:600;font-size:18px}
+
+  /* Rodizio ticket */
+  .rodizio{background:var(--yellow);color:var(--char);padding:76px 0;border-top:2.5px solid var(--char);border-bottom:2.5px solid var(--char)}
+  .ticket{display:grid;grid-template-columns:1fr;background:#fffaf0;border:2.5px solid var(--char);border-radius:28px;overflow:hidden;box-shadow:0 8px 0 var(--char)}
+  @media (min-width:900px){ .ticket{grid-template-columns:1.15fr .85fr} }
+  .ticket .main{padding:34px 28px;position:relative}
+  @media (min-width:900px){ .ticket .main{padding:44px 48px;border-right:3px dashed var(--char)} }
+  .ticket .kick{background:var(--green);color:#fff}
+  .ticket h2{margin-top:14px}
+  .ticket h2 .f{color:var(--flame-ink)}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .ticket h2 .f{color:#b83c0d} }
+  .ticket p{margin-top:14px;max-width:46ch;font-size:18px;color:#3d3a35}
+  .days{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .days span{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-family:"Fredoka",sans-serif;font-weight:600;font-size:16px;
+             border:2.5px dashed #9c9488;color:#6d665c}
+  .days span.on{border:2.5px solid var(--char);background:var(--flame);color:#fff;transform:rotate(-8deg)}
+  .ticket .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  .ticket .photo{position:relative;min-height:280px;background:var(--char)}
+  .ticket .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
   /* Menu */
-  .chips{position:sticky;top:var(--header);z-index:20;background:var(--paper);border-bottom:1px solid var(--line);
-         display:flex;gap:8px;overflow-x:auto;padding:8px 20px;scrollbar-width:none;margin:0 -20px}
-  .chips::-webkit-scrollbar{display:none}
-  .chips a{flex:none;display:inline-flex;align-items:center;min-height:42px;padding:0 16px;border-radius:999px;background:var(--soft);
-           font-size:15px;font-weight:600;text-decoration:none}
-  .chips a:hover,.chips a.on{background:var(--ink);color:var(--paper)}
-  .menu{display:grid;gap:0 64px;grid-template-columns:1fr}
-  @media (min-width:900px){ .menu{grid-template-columns:1fr 1fr} }
-  .group{padding-top:28px;scroll-margin-top:calc(var(--header) + var(--chips) - 20px)}
-  .group h3{font-size:26px;font-weight:800;color:var(--flame);margin-bottom:2px}
-  .group h3 .pt{font-family:"Barlow",sans-serif;text-transform:none;font-size:15px;font-weight:500;letter-spacing:0}
-  .group ul{list-style:none}
-  .group li{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line);scroll-margin-top:calc(var(--header) + var(--chips) + 12px)}
-  .group li:last-child{border-bottom:0}
-  .group li:target{background:var(--soft);border-radius:10px;padding-left:10px;padding-right:10px}
-  .thumb{width:56px;height:56px;border-radius:10px;object-fit:cover;flex:none;margin-top:2px}
-  .row{flex:1;min-width:0}
-  .top{display:flex;align-items:baseline;gap:8px}
-  .name{font-weight:600}
-  .pt{font-weight:400;color:var(--muted);font-size:14px;margin-left:4px;font-style:italic}
-  .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px);min-width:12px}
-  .price{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
-  .to{font-weight:400;color:var(--muted)}
-  .desc{display:block;color:var(--muted);font-size:15px;line-height:1.45;margin-top:2px}
-  .note{color:var(--muted);font-size:14.5px;margin-top:24px;max-width:70ch}
+  .menu-sec{padding:76px 0}
+  .tablist{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:6px 20px 10px;margin:0 -20px;position:sticky;top:var(--header);z-index:20;background:var(--paper)}
+  .tablist::-webkit-scrollbar{display:none}
+  .tablist button{flex:none;min-height:48px;padding:0 20px;border-radius:999px;border:2.5px solid var(--char);background:var(--card);color:var(--ink);
+                  font-family:"Fredoka",sans-serif;font-weight:600;font-size:17px;cursor:pointer}
+  .tablist button[aria-selected="true"]{background:var(--green);color:#fff;box-shadow:0 3px 0 var(--char)}
+  .panel{padding-top:16px}
+  .panel[hidden]{display:none}
+  .panel h3{font-size:28px;margin:26px 0 12px;color:var(--flame-ink)}
+  .panel h3:first-child{margin-top:8px}
+  .panel h3 .pt{font-family:"Nunito",sans-serif;font-size:15px;font-weight:600;color:var(--muted);font-style:italic}
+  .items{list-style:none;display:grid;gap:14px;grid-template-columns:1fr;align-items:start}
+  @media (min-width:640px){ .items{grid-template-columns:1fr 1fr} }
+  @media (min-width:1000px){ .items{grid-template-columns:repeat(3,1fr)} }
+  .item{background:var(--card);border:2px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:calc(var(--header) + 80px)}
+  .item.has-img{border-color:var(--char);border-width:2.5px}
+  .item:target,.item.hl{border-color:var(--flame);box-shadow:0 0 0 4px var(--yellow)}
+  .it-img{width:100%;aspect-ratio:16/9;object-fit:cover}
+  .it-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:3px;flex:1}
+  .it-body h4{font-size:20px;line-height:1.15}
+  .pt{color:var(--muted);font-size:14px;font-style:italic}
+  .desc{color:var(--muted);font-size:15px;line-height:1.45}
+  .tag{align-self:flex-start;margin-top:auto;padding-top:8px;font-weight:800;color:var(--green);font-size:17px}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .tag{color:#5fd393} }
+  :root[data-theme="dark"] .tag, :root[data-theme="dark"] .sig-price{color:#5fd393}
+  .menu-note{color:var(--muted);font-size:15px;margin-top:26px;max-width:72ch}
+  .menu-cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:22px}
 
-  /* About + ratings */
-  .about{display:grid;gap:32px;grid-template-columns:1fr;align-items:center}
-  @media (min-width:900px){ .about{grid-template-columns:1.1fr .9fr;gap:56px} }
-  .about p{font-size:19px;line-height:1.55;max-width:46ch}
-  .about p + p{margin-top:12px;color:var(--muted);font-size:17px}
-  .about img{border-radius:18px;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px}
-  .stat{background:var(--soft);border-radius:16px;padding:18px 16px}
-  .stat b{display:block;font-family:"Barlow Condensed",sans-serif;font-size:clamp(30px,5vw,44px);line-height:1;font-weight:800}
-  .stat span{display:block;color:var(--muted);font-size:14.5px;margin-top:6px;line-height:1.35}
-  .stat .stars{display:block;color:var(--gold);font-size:15px;letter-spacing:1px;margin-bottom:2px}
+  /* About: photo collage + round badges */
+  .about{padding:20px 0 76px}
+  .about .wrap{display:grid;gap:36px;grid-template-columns:1fr;align-items:center}
+  @media (min-width:920px){ .about .wrap{grid-template-columns:1fr 1fr;gap:60px} }
+  .collage{position:relative;padding-bottom:16%}
+  .collage img{border:2.5px solid var(--char);border-radius:var(--r);object-fit:cover;width:100%}
+  .collage .a{aspect-ratio:4/3;width:82%}
+  .collage .b{position:absolute;right:0;bottom:0;width:52%;aspect-ratio:1;box-shadow:0 6px 0 var(--char)}
+  .about p.big{font-size:20px;margin-top:18px;max-width:44ch}
+  .about p.sm{color:var(--muted);margin-top:12px;max-width:44ch}
+  .badges{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+  .bdg{width:132px;height:132px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+       border:2.5px solid var(--char);background:var(--card);padding:10px;line-height:1.15}
+  .bdg:nth-child(1){background:var(--yellow);color:var(--char);transform:rotate(-6deg)}
+  .bdg:nth-child(2){background:var(--green);color:#fff;transform:rotate(4deg)}
+  .bdg:nth-child(3){background:var(--flame);color:#fff;transform:rotate(-3deg)}
+  .bdg b{font-family:"Fredoka",sans-serif;font-weight:700;font-size:32px}
+  .bdg span{font-size:13.5px;font-weight:800;max-width:11ch}
+  .bdg a{color:inherit}
 
-  /* Visit */
-  .visit{display:grid;gap:32px;grid-template-columns:1fr;align-items:start}
-  @media (min-width:900px){ .visit{grid-template-columns:1fr 1fr;gap:56px} }
-  .hours{width:100%;border-collapse:collapse}
-  .hours td{padding:10px 0;border-bottom:1px solid var(--line)}
-  .hours td:last-child{text-align:right}
-  .hours tr.today td{font-weight:700;color:var(--flame)}
-  .hours tr.closed td:last-child{color:var(--muted)}
-  .small{font-size:15px;color:var(--muted);margin-top:12px}
-  .storefront{border-radius:18px;overflow:hidden;margin-top:24px;aspect-ratio:3/2;background:var(--soft)}
-  .storefront img{width:100%;height:100%;object-fit:cover}
-  .place p{font-size:19px}
-  .place .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-  .map{border-radius:18px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;margin-top:22px;background:var(--soft)}
-  .map iframe{width:100%;height:100%;border:0}
+  /* Visit: the pizza box */
+  .visit{background:var(--green);color:#fff;padding:76px 0;position:relative}
+  .box{display:grid;gap:0;grid-template-columns:1fr;background:var(--char);border-radius:30px;overflow:hidden;border:2.5px solid #000;box-shadow:0 10px 0 var(--green-deep)}
+  @media (min-width:920px){ .box{grid-template-columns:1fr 1fr} }
+  .box .lid{padding:32px 26px}
+  @media (min-width:920px){ .box .lid{padding:44px 44px} }
+  .box h2{color:var(--yellow)}
+  .hours{width:100%;border-collapse:collapse;margin-top:22px;font-size:17px}
+  .hours td{padding:11px 0;border-bottom:1.5px dashed #4a4b4c}
+  .hours td:last-child{text-align:right;font-weight:700}
+  .hours tr.today td{color:var(--yellow)}
+  .hours tr.closed td:last-child{color:#a29b92;font-weight:600}
+  .box .small{color:#cfc8bf;font-size:15px;margin-top:14px}
+  .box .addr{font-family:"Fredoka",sans-serif;font-size:22px;margin-top:26px;line-height:1.3}
+  .box .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+  .box .btn{border-color:#000;box-shadow:0 4px 0 #000}
+  .box .side{display:grid;grid-template-rows:1fr 1fr;min-height:520px}
+  .box .side img{width:100%;height:100%;object-fit:cover}
+  .box .map{background:#2b2c2d}
+  .box .map iframe{width:100%;height:100%;border:0;display:block;min-height:260px}
 
-  /* Footer */
-  footer{background:var(--night);color:#b9b2a9;padding:36px 0 44px;font-size:15px}
-  footer .wrap{display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;align-items:center}
+  footer{background:var(--char);color:#c9c2b8;padding:34px 0 40px;font-size:15px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:16px 28px;justify-content:space-between;align-items:center}
   footer nav{display:flex;flex-wrap:wrap;gap:4px 18px}
   footer a{text-decoration:none;display:inline-flex;align-items:center;min-height:32px}
   footer a:hover{color:#fff;text-decoration:underline}
 
-  /* Motion */
-  .hero-photo img{will-change:transform}
-  .group li.hl{background:var(--soft);border-radius:10px;padding-left:10px;padding-right:10px;transition:background .6s}
-  @media (prefers-reduced-motion: no-preference){
-    .dot.open{animation:pulse 2.4s ease-out infinite}
-    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,154,85,.45)}70%{box-shadow:0 0 0 8px rgba(47,154,85,0)}100%{box-shadow:0 0 0 0 rgba(47,154,85,0)}}
-    .btn{transition:transform .2s ease, background .2s}
-    .btn:not(.magnetic):hover{transform:translateY(-2px)}
-    .btn:not(.magnetic):active{transform:translateY(0) scale(.97)}
-    .btn.magnetic{transition:background .2s}
-  }
-  .btn{position:relative;isolation:isolate}
-  .btn .rip{position:absolute;inset:0;border-radius:inherit;overflow:hidden;pointer-events:none;z-index:0}
-  .btn .rip i{position:absolute;width:500px;height:500px;margin:-250px 0 0 -250px;border-radius:50%;background:#fff;opacity:0;pointer-events:none}
-  .btn.ghost .rip i{background:currentColor}
-  .btn > .t{position:relative;z-index:1}
+  /* Scroll reveal (only when motion is OK and JS ran) */
+  .js .rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease, transform .6s ease}
+  .js .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){ .js .rv{opacity:1;transform:none;transition:none} }
 
   /* Phone action bar */
   .bar{display:none}
   @media (max-width:700px){
-    .bar{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;
-         padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--paper);border-top:1px solid var(--line)}
-    .bar .btn{padding:0 6px;font-size:15px}
-    body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+    .bar{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;
+         padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--paper);border-top:2.5px solid var(--char)}
+    .bar .btn{padding:0 6px;font-size:16px;min-height:46px;box-shadow:0 3px 0 var(--char)}
+    body{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
   }
 </style>
 </head>
 <body>
+<script>document.documentElement.classList.add("js")</script>
 <a class="skip" href="#menu">Skip to menu</a>
+
+<div class="strip">Rodízio all-you-can-eat pizza <b>Thursday to Sunday</b> · Open Tuesday to Sunday</div>
 
 <header>
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Brazil Pizza, back to top"><img src="images/logo-mark.png" width="435" height="227" alt="Brazil Pizza"></a>
+    <a class="brand" href="#top" aria-label="Brazil Pizza, back to top"><span class="badge"><img src="images/logo-mark.png" width="435" height="227" alt="Brazil Pizza"></span></a>
     <nav class="nav" aria-label="Main">
-      <a class="hide" href="#menu">Menu</a>
-      <a class="hide" href="#rodizio">Rodízio</a>
-      <a class="hide" href="#visit">Hours and location</a>
-      <a class="btn gold sm" href="https://orderbrazilpizza.square.site/" target="_blank" rel="noopener">Order online</a>
+      <a class="pill" href="#signature">Favorites</a>
+      <a class="pill" href="#rodizio">Rodízio</a>
+      <a class="pill" href="#menu">Menu</a>
+      <a class="pill" href="#visit">Visit</a>
+      <a class="btn yellow sm" href="https://orderbrazilpizza.square.site/" target="_blank" rel="noopener">Order online</a>
     </nav>
   </div>
 </header>
@@ -247,227 +304,246 @@
     <div class="wrap">
       <div>
         <span class="status"><span class="dot" id="dot"></span><span id="status">Open Tuesday to Sunday</span></span>
-        <h1>Pizza the <em>Brazilian</em> way.</h1>
-        <p class="lead">Thin, crispy crust and toppings from back home, like catupiry, calabresa and hearts of palm. Plus sweet pizzas for dessert, right on Powers Ferry Road in Marietta.</p>
+        <h1>Pizza com sabor <span class="y">do Brasil.</span></h1>
+        <p class="lead">Brazilian-style pizza with a crispy crust and toppings from back home, like catupiry, calabresa and hearts of palm. Then save room for a sweet pizza.</p>
         <div class="actions">
-          <a class="btn primary magnetic" href="https://orderbrazilpizza.square.site/" target="_blank" rel="noopener">Order pickup or delivery</a>
-          <a class="btn ghost magnetic" href="tel:+14044211426">Call (404) 421-1426</a>
+          <a class="btn yellow" href="https://orderbrazilpizza.square.site/" target="_blank" rel="noopener">Order pickup or delivery</a>
+          <a class="btn white" href="tel:+14044211426">Call (404) 421-1426</a>
         </div>
         <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> 4.6 from 640+ Google reviews</p>
       </div>
-      <div class="hero-photo">
-        <img src="images/hero.jpg" width="1269" height="640" alt="A Brazil Pizza pie topped with shredded beef, onion rings, cherry tomatoes and green olives, with a small Brazilian flag">
+      <div class="plate">
+        <div class="pie"><img src="images/hero.jpg" width="1269" height="640" alt="A Brazil Pizza pie topped with shredded beef, onion rings, cherry tomatoes and green olives, with a small Brazilian flag"></div>
+        <div class="stamp" aria-hidden="true">
+          <svg viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="96" fill="#e8551d" stroke="#1e1f20" stroke-width="5"/>
+            <g class="ring">
+              <path id="circ" d="M100,100 m-70,0 a70,70 0 1,1 140,0 a70,70 0 1,1 -140,0" fill="none"/>
+              <text font-family="Fredoka, sans-serif" font-weight="600" font-size="19" fill="#fff" letter-spacing="2.5">
+                <textPath href="#circ">AUTÊNTICA · BRAZILIAN-STYLE · MARIETTA ·</textPath>
+              </text>
+            </g>
+            <text x="100" y="114" text-anchor="middle" font-size="44">🍕</text>
+          </svg>
+        </div>
       </div>
     </div>
+    <div class="wave" aria-hidden="true"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path fill="currentColor" d="M0,30 C120,60 240,0 360,30 C480,60 600,0 720,30 C840,60 960,0 1080,30 C1200,60 1320,0 1440,30 L1440,60 L0,60 Z"/></svg></div>
   </section>
 
-  <div class="wrap">
-    <div class="glance" aria-label="At a glance">
-      <a href="#visit"><span class="k">Today</span><span class="v" id="today">See our hours</span><span class="go">All hours</span></a>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=Brazil+Pizza+279+Powers+Ferry+Rd+SE+Ste+B+Marietta+GA+30067" target="_blank" rel="noopener"><span class="k">Find us</span><span class="v">279 Powers Ferry Rd SE, Ste B, Marietta</span><span class="go">Get directions</span></a>
-      <a href="tel:+14044211426"><span class="k">Call us</span><span class="v">(404) 421-1426</span><span class="go">Tap to call</span></a>
+  <div class="ticker" aria-hidden="true">
+    <div class="track">
+      <span>Catupiry</span><span>Calabresa</span><span>Palmito</span><span>Queijo coalho</span><span>Carne seca</span><span>Brigadeiro</span><span>Paçoca</span><span>Guaraná</span><span>Romeu e Julieta</span>
+      <span>Catupiry</span><span>Calabresa</span><span>Palmito</span><span>Queijo coalho</span><span>Carne seca</span><span>Brigadeiro</span><span>Paçoca</span><span>Guaraná</span><span>Romeu e Julieta</span>
     </div>
   </div>
 
-  <section class="sec" id="popular" style="border-top:0">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>Fresh from our oven</h2>
-        <a class="link" href="#menu">See the full menu</a>
-      </div>
-      <div class="pops">
-        <a class="pop" href="#item-nordestina">
-          <span class="pop-img"><span class="badge">Brazilian favorite</span><img src="images/nordestina.jpg" alt="Nordestina pizza from Brazil Pizza" width="640" height="512" loading="lazy"></span>
-          <span class="pop-row"><span class="pop-name">Nordestina</span><span class="pop-price">$25.90<span class="to"> to </span>$33.90</span></span>
-          <span class="pop-desc">Pizza sauce, mozzarella, dried meat, catupiry, biquinho peppers, queijo coalho, olives, oregano and parsley</span>
-        </a>
-        <a class="pop" href="#item-margherita">
-          <span class="pop-img"><img src="images/margherita.jpg" alt="Margherita pizza from Brazil Pizza" width="640" height="512" loading="lazy"></span>
-          <span class="pop-row"><span class="pop-name">Margherita</span><span class="pop-price">$23.90<span class="to"> to </span>$31.90</span></span>
-          <span class="pop-desc">Pizza sauce, mozzarella, tomatoes, basil, olives and oregano</span>
-        </a>
-        <a class="pop" href="#item-calabresa">
-          <span class="pop-img"><img src="images/calabresa.jpg" alt="Calabresa pizza from Brazil Pizza" width="640" height="512" loading="lazy"></span>
-          <span class="pop-row"><span class="pop-name">Calabresa</span><span class="pop-price">$24.90<span class="to"> to </span>$32.90</span></span>
-          <span class="pop-desc">Pizza sauce, mozzarella, smoked sausage, onions, olives and oregano</span>
-        </a>
-        <a class="pop" href="#item-strawberry-with-nutella">
-          <span class="pop-img"><span class="badge">Sweet pizza</span><img src="images/strawberry-slice.jpg" alt="Strawberry with Nutella pizza from Brazil Pizza" width="640" height="512" loading="lazy"></span>
-          <span class="pop-row"><span class="pop-name">Strawberry with Nutella</span><span class="pop-price">$17.90<span class="to"> to </span>$31.90</span></span>
-          <span class="pop-desc">Nutella, strawberries and chocolate sprinkles</span>
-        </a>
-        <a class="pop" href="#item-banana-with-nutella">
-          <span class="pop-img"><span class="badge">Sweet pizza</span><img src="images/banana-nutella.jpg" alt="Banana with Nutella pizza from Brazil Pizza" width="640" height="512" loading="lazy"></span>
-          <span class="pop-row"><span class="pop-name">Banana with Nutella</span><span class="pop-price">$17.90<span class="to"> to </span>$31.90</span></span>
-          <span class="pop-desc">Table cream, mozzarella, banana and Nutella</span>
-        </a>
-        <a class="pop" href="#item-garlic-bread">
-          <span class="pop-img"><img src="images/garlic-bread.jpg" alt="Garlic bread pizza from Brazil Pizza" width="640" height="512" loading="lazy"></span>
-          <span class="pop-row"><span class="pop-name">Garlic bread</span><span class="pop-price">$7.90</span></span>
-          <span class="pop-desc">Mozzarella, parmesan, minced garlic and Italian seasoning</span>
-        </a>
-      </div>
+  <div class="wrap">
+    <div class="facts" aria-label="At a glance">
+      <a class="fact" href="#visit"><span class="k">Today</span><span class="v" id="today">See our hours</span><span class="go">All hours</span></a>
+      <a class="fact" href="https://www.google.com/maps/dir/?api=1&destination=Brazil+Pizza+279+Powers+Ferry+Rd+SE+Ste+B+Marietta+GA+30067" target="_blank" rel="noopener"><span class="k">Find us</span><span class="v">279 Powers Ferry Rd SE, Ste B</span><span class="go">Get directions</span></a>
+      <a class="fact" href="tel:+14044211426"><span class="k">Call us</span><span class="v">(404) 421-1426</span><span class="go">Tap to call</span></a>
     </div>
-  </section>
+  </div>
 
-  <section class="sec rodizio" id="rodizio">
+  <section class="sigs-sec" id="signature">
     <div class="wrap">
-      <div>
-        <span class="kicker">Thursday to Sunday</span>
-        <h2>Rodízio: all-you-can-eat pizza</h2>
-        <p>Can't pick one flavor? Try them all. Our rodízio lets you taste a wide range of savory and sweet Brazilian pizzas for one price, right at your table.</p>
-        <div class="days" aria-label="Rodízio days">
-          <span>Tue</span><span>Wed</span><span class="on">Thu</span><span class="on">Fri</span><span class="on">Sat</span><span class="on">Sun</span>
-        </div>
-        <div class="actions">
-          <a class="btn gold" href="tel:+14044211426">Call for times and price</a>
-          <a class="btn ghost" href="https://www.instagram.com/brazilpizzamarietta/" target="_blank" rel="noopener">See it on Instagram</a>
-        </div>
-      </div>
-      <div class="shots">
-        <img src="images/rodizio.jpg" width="1200" height="800" alt="Three Brazil Pizza pies side by side on a table, topped with onions, olives, basil and cheese" loading="lazy">
-        <img src="images/sweet-duo.jpg" width="640" height="512" alt="Two sweet pizzas: one with chocolate sprinkles and strawberries, one dusted with powdered milk" loading="lazy">
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="menu" style="border-top:0">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>Menu</h2>
-        <p>Prices from our online ordering menu. Pizza prices depend on size.</p>
-      </div>
-      <nav class="chips" aria-label="Menu categories">
-        <a href="#deal">Tuesday to Thursday deal</a>
-        <a href="#savory">Savory pizzas</a>
-        <a href="#half">Half and half</a>
-        <a href="#sweet">Sweet pizzas</a>
-        <a href="#calzone">Calzones</a>
-        <a href="#apps">Appetizers</a>
-        <a href="#drinks">Drinks</a>
-      </nav>
-      <div class="menu">
-        <div class="menu-col">
-          <div class="group" id="deal">
-            <h3>Tuesday to Thursday deal</h3>
-            <ul>
-              <li id="item-classic-pizza-combo" class=""><div class="row"><div class="top"><span class="name">Classic pizza combo</span><span class="dots" aria-hidden="true"></span><span class="price">$29.90</span></div><span class="desc">Large pizza, garlic or pepperoni bread, and a 2-liter soda</span></div></li>
-            </ul>
-          </div>
-          <div class="group" id="savory">
-            <h3>Savory pizzas <span class="pt" lang="pt-BR">Pizza inteira salgada</span></h3>
-            <ul>
-              <li id="item-5-cheese" class=""><div class="row"><div class="top"><span class="name">5 cheese <span class="pt" lang="pt-BR">5 queijos</span></span><span class="dots" aria-hidden="true"></span><span class="price">$23.90<span class="to"> to </span>$31.90</span></div><span class="desc">Pizza sauce, mozzarella, gorgonzola, parmesan, provolone, catupiry, olives and oregano</span></div></li>
-              <li id="item-bacon" class=""><div class="row"><div class="top"><span class="name">Bacon</span><span class="dots" aria-hidden="true"></span><span class="price">$23.90<span class="to"> to </span>$31.90</span></div><span class="desc">Pizza sauce, mozzarella, bacon, olives and oregano</span></div></li>
-              <li id="item-broccoli-with-bacon" class=""><div class="row"><div class="top"><span class="name">Broccoli with bacon</span><span class="dots" aria-hidden="true"></span><span class="price">$24.90<span class="to"> to </span>$32.90</span></div><span class="desc">Pizza sauce, mozzarella, broccoli, bacon, catupiry, cheddar, olives and oregano</span></div></li>
-              <li id="item-calabresa" class="has-thumb"><img class="thumb" src="images/calabresa.jpg" alt="" width="56" height="56" loading="lazy"><div class="row"><div class="top"><span class="name">Calabresa</span><span class="dots" aria-hidden="true"></span><span class="price">$24.90<span class="to"> to </span>$32.90</span></div><span class="desc">Pizza sauce, mozzarella, smoked sausage, onions, olives and oregano</span></div></li>
-              <li id="item-calabresa-with-bacon" class=""><div class="row"><div class="top"><span class="name">Calabresa with bacon</span><span class="dots" aria-hidden="true"></span><span class="price">$24.90<span class="to"> to </span>$32.90</span></div><span class="desc">Pizza sauce, mozzarella, smoked sausage, bacon, olives and oregano</span></div></li>
-              <li id="item-canadian-bacon-with-catupiry" class=""><div class="row"><div class="top"><span class="name">Canadian bacon with catupiry <span class="pt" lang="pt-BR">Lombinho</span></span><span class="dots" aria-hidden="true"></span><span class="price">$24.90<span class="to"> to </span>$32.90</span></div><span class="desc">Pizza sauce, mozzarella, Canadian bacon, pineapple, catupiry, olives and oregano</span></div></li>
-              <li id="item-carnivore" class=""><div class="row"><div class="top"><span class="name">Carnivore</span><span class="dots" aria-hidden="true"></span><span class="price">$23.90<span class="to"> to </span>$31.90</span></div><span class="desc">Pizza sauce, mozzarella, pepperoni, bacon, Italian sausage, green bell peppers and mushrooms</span></div></li>
-              <li id="item-carne-seca-bbq" class=""><div class="row"><div class="top"><span class="name">Carne seca BBQ</span><span class="dots" aria-hidden="true"></span><span class="price">$24.90<span class="to"> to </span>$32.90</span></div><span class="desc">Tomato sauce, mozzarella, shredded beef, BBQ sauce and green onions</span></div></li>
-              <li id="item-chicken-with-bacon" class=""><div class="row"><div class="top"><span class="name">Chicken with bacon</span><span class="dots" aria-hidden="true"></span><span class="price">$23.90<span class="to"> to </span>$31.90</span></div><span class="desc">Pizza sauce, chicken, mozzarella, bacon, olives and oregano</span></div></li>
-              <li id="item-chicken-with-catupiry" class=""><div class="row"><div class="top"><span class="name">Chicken with catupiry <span class="pt" lang="pt-BR">Frango com catupiry</span></span><span class="dots" aria-hidden="true"></span><span class="price">$25.90<span class="to"> to </span>$33.90</span></div><span class="desc">Pizza sauce, mozzarella, chicken, corn, catupiry, olives and oregano</span></div></li>
-              <li id="item-churrasco" class=""><div class="row"><div class="top"><span class="name">Churrasco</span><span class="dots" aria-hidden="true"></span><span class="price">$25.90<span class="to"> to </span>$33.90</span></div><span class="desc">Pizza sauce, mozzarella, provolone, steak, vinaigrette and catupiry</span></div></li>
-              <li id="item-hawaiian" class=""><div class="row"><div class="top"><span class="name">Hawaiian</span><span class="dots" aria-hidden="true"></span><span class="price">$23.90<span class="to"> to </span>$31.90</span></div><span class="desc">Pizza sauce, mozzarella, ham, pineapple, olives and oregano</span></div></li>
-              <li id="item-hearts-of-palm" class=""><div class="row"><div class="top"><span class="name">Hearts of palm <span class="pt" lang="pt-BR">Palmito</span></span><span class="dots" aria-hidden="true"></span><span class="price">$24.90<span class="to"> to </span>$32.90</span></div><span class="desc">Pizza sauce, mozzarella, catupiry, hearts of palm, black olives and oregano</span></div></li>
-              <li id="item-house-style" class=""><div class="row"><div class="top"><span class="name">House style <span class="pt" lang="pt-BR">Moda da casa</span></span><span class="dots" aria-hidden="true"></span><span class="price">$25.90<span class="to"> to </span>$33.90</span></div><span class="desc">Pizza sauce, mozzarella, calabresa, ham, Canadian bacon, tomatoes, eggs, bacon, corn, peas, onions, olives and oregano</span></div></li>
-              <li id="item-margherita" class="has-thumb"><img class="thumb" src="images/margherita.jpg" alt="" width="56" height="56" loading="lazy"><div class="row"><div class="top"><span class="name">Margherita</span><span class="dots" aria-hidden="true"></span><span class="price">$23.90<span class="to"> to </span>$31.90</span></div><span class="desc">Pizza sauce, mozzarella, tomatoes, basil, olives and oregano</span></div></li>
-              <li id="item-mozzarella" class=""><div class="row"><div class="top"><span class="name">Mozzarella</span><span class="dots" aria-hidden="true"></span><span class="price">$23.90<span class="to"> to </span>$31.90</span></div><span class="desc">Pizza sauce, mozzarella, tomatoes, olives and oregano</span></div></li>
-              <li id="item-nordestina" class="has-thumb"><img class="thumb" src="images/nordestina.jpg" alt="" width="56" height="56" loading="lazy"><div class="row"><div class="top"><span class="name">Nordestina</span><span class="dots" aria-hidden="true"></span><span class="price">$25.90<span class="to"> to </span>$33.90</span></div><span class="desc">Pizza sauce, mozzarella, dried meat, catupiry, biquinho peppers, queijo coalho, olives, oregano and parsley</span></div></li>
-              <li id="item-pepperoni" class=""><div class="row"><div class="top"><span class="name">Pepperoni</span><span class="dots" aria-hidden="true"></span><span class="price">$23.90<span class="to"> to </span>$31.90</span></div><span class="desc">Pizza sauce, mozzarella, pepperoni, olives and oregano</span></div></li>
-              <li id="item-portuguese" class=""><div class="row"><div class="top"><span class="name">Portuguese <span class="pt" lang="pt-BR">Portuguesa</span></span><span class="dots" aria-hidden="true"></span><span class="price">$24.90<span class="to"> to </span>$32.90</span></div><span class="desc">Pizza sauce, ham, eggs, bacon, corn, peas, mozzarella, tomatoes, olives and oregano</span></div></li>
-              <li id="item-shrimp-supreme" class=""><div class="row"><div class="top"><span class="name">Shrimp supreme</span><span class="dots" aria-hidden="true"></span><span class="price">$25.90<span class="to"> to </span>$33.90</span></div><span class="desc">White sauce, mozzarella, catupiry, shrimp, parmesan, garlic sauce and parsley</span></div></li>
-              <li id="item-verde" class=""><div class="row"><div class="top"><span class="name">Verde</span><span class="dots" aria-hidden="true"></span><span class="price">$23.90<span class="to"> to </span>$29.90</span></div><span class="desc">Pizza sauce, mozzarella, oregano, arugula, sun-dried tomatoes and parmesan</span></div></li>
-            </ul>
-          </div>
-          <div class="group" id="half">
-            <h3>Half and half <span class="pt" lang="pt-BR">Meio a meio</span></h3>
-            <ul>
-              <li id="item-half-and-half-savory" class=""><div class="row"><div class="top"><span class="name">Half and half savory <span class="pt" lang="pt-BR">Meia/meia salgada</span></span><span class="dots" aria-hidden="true"></span><span class="price">$23.90<span class="to"> to </span>$31.90</span></div><span class="desc">Pick two savory flavors on one pizza</span></div></li>
-              <li id="item-half-and-half-sweet" class=""><div class="row"><div class="top"><span class="name">Half and half sweet <span class="pt" lang="pt-BR">Meia/meia doce</span></span><span class="dots" aria-hidden="true"></span><span class="price">$23.90<span class="to"> to </span>$31.90</span></div><span class="desc">Pick two sweet flavors on one pizza</span></div></li>
-            </ul>
-          </div>
-        </div>
-        <div class="menu-col">
-          <div class="group" id="sweet">
-            <h3>Sweet pizzas <span class="pt" lang="pt-BR">Pizza inteira doce</span></h3>
-            <ul>
-              <li id="item-banana-with-cinnamon" class=""><div class="row"><div class="top"><span class="name">Banana with cinnamon</span><span class="dots" aria-hidden="true"></span><span class="price">$17.90<span class="to"> to </span>$31.90</span></div><span class="desc">Table cream, mozzarella, banana, sweetened condensed milk and cinnamon</span></div></li>
-              <li id="item-banana-with-nutella" class="has-thumb"><img class="thumb" src="images/banana-nutella.jpg" alt="" width="56" height="56" loading="lazy"><div class="row"><div class="top"><span class="name">Banana with Nutella</span><span class="dots" aria-hidden="true"></span><span class="price">$17.90<span class="to"> to </span>$31.90</span></div><span class="desc">Table cream, mozzarella, banana and Nutella</span></div></li>
-              <li id="item-brazilian-peanut-candy" class=""><div class="row"><div class="top"><span class="name">Brazilian peanut candy <span class="pt" lang="pt-BR">Paçoquita</span></span><span class="dots" aria-hidden="true"></span><span class="price">$17.90<span class="to"> to </span>$31.90</span></div><span class="desc">Dulce de leche, paçoca and peanut brittle</span></div></li>
-              <li id="item-brigadeiro-gourmet" class=""><div class="row"><div class="top"><span class="name">Brigadeiro gourmet</span><span class="dots" aria-hidden="true"></span><span class="price">$17.90<span class="to"> to </span>$31.90</span></div><span class="desc">Brigadeiro spread, chocolate sprinkles and traditional brigadeiro</span></div></li>
-              <li id="item-burnt-coconut" class=""><div class="row"><div class="top"><span class="name">Burnt coconut</span><span class="dots" aria-hidden="true"></span><span class="price">$17.90<span class="to"> to </span>$31.90</span></div><span class="desc">Shredded coconut, dulce de leche and powdered sugar</span></div></li>
-              <li id="item-churros" class=""><div class="row"><div class="top"><span class="name">Churros</span><span class="dots" aria-hidden="true"></span><span class="price">$17.90<span class="to"> to </span>$31.90</span></div><span class="desc">Sweetened condensed milk, mozzarella, dulce de leche, cinnamon and powdered sugar</span></div></li>
-              <li id="item-coconut-chocolate" class=""><div class="row"><div class="top"><span class="name">Coconut chocolate <span class="pt" lang="pt-BR">Prestígio</span></span><span class="dots" aria-hidden="true"></span><span class="price">$17.90<span class="to"> to </span>$31.90</span></div><span class="desc">Nutella, sweetened condensed milk, shredded coconut and coconut chocolate</span></div></li>
-              <li id="item-ferrero" class=""><div class="row"><div class="top"><span class="name">Ferrero</span><span class="dots" aria-hidden="true"></span><span class="price">$17.90<span class="to"> to </span>$31.90</span></div><span class="desc">Nutella, chopped nuts, Ferrero Rocher and edible gold dust</span></div></li>
-              <li id="item-kinder" class=""><div class="row"><div class="top"><span class="name">Kinder</span><span class="dots" aria-hidden="true"></span><span class="price">$17.90<span class="to"> to </span>$31.90</span></div><span class="desc">Nutella, Kinder Bueno and sweetened condensed milk</span></div></li>
-              <li id="item-m-m-s" class=""><div class="row"><div class="top"><span class="name">M&amp;M&#x27;s</span><span class="dots" aria-hidden="true"></span><span class="price">$17.90<span class="to"> to </span>$31.90</span></div><span class="desc">Nutella and M&amp;M&#x27;s</span></div></li>
-              <li id="item-romeo-and-juliet" class=""><div class="row"><div class="top"><span class="name">Romeo and Juliet <span class="pt" lang="pt-BR">Romeu e Julieta</span></span><span class="dots" aria-hidden="true"></span><span class="price">$17.90<span class="to"> to </span>$31.90</span></div><span class="desc">Table cream, mozzarella, catupiry and guava paste</span></div></li>
-              <li id="item-snowy-banana" class=""><div class="row"><div class="top"><span class="name">Snowy banana <span class="pt" lang="pt-BR">Banana nevada</span></span><span class="dots" aria-hidden="true"></span><span class="price">$17.90<span class="to"> to </span>$31.90</span></div><span class="desc">Table cream, mozzarella, banana, sweetened condensed milk, dulce de leche and Nido milk powder</span></div></li>
-              <li id="item-strawberry-white-chocolate" class=""><div class="row"><div class="top"><span class="name">Strawberry white chocolate</span><span class="dots" aria-hidden="true"></span><span class="price">$17.90<span class="to"> to </span>$31.90</span></div><span class="desc">Table cream, mozzarella, white chocolate, strawberry and Kinder Bueno</span></div></li>
-              <li id="item-strawberry-with-nutella" class="has-thumb"><img class="thumb" src="images/strawberry-slice.jpg" alt="" width="56" height="56" loading="lazy"><div class="row"><div class="top"><span class="name">Strawberry with Nutella</span><span class="dots" aria-hidden="true"></span><span class="price">$17.90<span class="to"> to </span>$31.90</span></div><span class="desc">Nutella, strawberries and chocolate sprinkles</span></div></li>
-              <li id="item-white-chocolate" class=""><div class="row"><div class="top"><span class="name">White chocolate</span><span class="dots" aria-hidden="true"></span><span class="price">$17.90<span class="to"> to </span>$31.90</span></div><span class="desc">Table cream, mozzarella, white chocolate, green grapes and white chocolate wafer</span></div></li>
-              <li id="item-yoyo" class=""><div class="row"><div class="top"><span class="name">Yoyo <span class="pt" lang="pt-BR">Chocolate branco e Nutella</span></span><span class="dots" aria-hidden="true"></span><span class="price">$17.90<span class="to"> to </span>$31.90</span></div><span class="desc">Table cream, mozzarella, white chocolate and Nutella</span></div></li>
-            </ul>
-          </div>
-          <div class="group" id="calzone">
-            <h3>Calzones</h3>
-            <ul>
-              <li id="item-pepperoni-calzone" class=""><div class="row"><div class="top"><span class="name">Pepperoni calzone</span><span class="dots" aria-hidden="true"></span><span class="price">$12.90</span></div><span class="desc">Marinara, mozzarella, pepperoni, mushrooms and Italian sausage</span></div></li>
-              <li id="item-brasileiro" class=""><div class="row"><div class="top"><span class="name">Brasileiro</span><span class="dots" aria-hidden="true"></span><span class="price">$15.90</span></div><span class="desc">Marinara, mozzarella, dried meat, bell pepper, catupiry, onions and green olives</span></div></li>
-              <li id="item-frangão" class=""><div class="row"><div class="top"><span class="name">Frangão</span><span class="dots" aria-hidden="true"></span><span class="price">$14.90</span></div><span class="desc">Marinara, mozzarella, chicken, catupiry, cheddar, bacon and green olives</span></div></li>
-              <li id="item-do-chefe" class=""><div class="row"><div class="top"><span class="name">Do chefe</span><span class="dots" aria-hidden="true"></span><span class="price">$15.90</span></div><span class="desc">Marinara, mozzarella and the chef&#x27;s secret blend with calabresa and green olives</span></div></li>
-            </ul>
-          </div>
-          <div class="group" id="apps">
-            <h3>Appetizers</h3>
-            <ul>
-              <li id="item-garlic-bread" class="has-thumb"><img class="thumb" src="images/garlic-bread.jpg" alt="" width="56" height="56" loading="lazy"><div class="row"><div class="top"><span class="name">Garlic bread</span><span class="dots" aria-hidden="true"></span><span class="price">$7.90</span></div><span class="desc">Mozzarella, parmesan, minced garlic and Italian seasoning</span></div></li>
-              <li id="item-pepperoni-bread" class=""><div class="row"><div class="top"><span class="name">Pepperoni bread</span><span class="dots" aria-hidden="true"></span><span class="price">$9.90</span></div><span class="desc">Mozzarella, pepperoni and Italian seasoning</span></div></li>
-            </ul>
-          </div>
-          <div class="group" id="drinks">
-            <h3>Drinks</h3>
-            <ul>
-              <li id="item-guaraná-antarctica--2-liter" class=""><div class="row"><div class="top"><span class="name">Guaraná Antarctica (2 liter)</span><span class="dots" aria-hidden="true"></span><span class="price">$7.50</span></div></div></li>
-              <li id="item-guaraná-antarctica--12-oz" class=""><div class="row"><div class="top"><span class="name">Guaraná Antarctica (12 oz)</span><span class="dots" aria-hidden="true"></span><span class="price">$3.50</span></div><span class="desc">Regular or zero</span></div></li>
-              <li id="item-coca-cola--2-liter" class=""><div class="row"><div class="top"><span class="name">Coca-Cola (2 liter)</span><span class="dots" aria-hidden="true"></span><span class="price">$5.50</span></div></div></li>
-              <li id="item-mexican-coke" class=""><div class="row"><div class="top"><span class="name">Mexican Coke</span><span class="dots" aria-hidden="true"></span><span class="price">$4.50</span></div></div></li>
-              <li id="item-canned-soda--12-oz" class=""><div class="row"><div class="top"><span class="name">Canned soda (12 oz)</span><span class="dots" aria-hidden="true"></span><span class="price">$2.50</span></div><span class="desc">Coca-Cola, Coke Zero, Sprite or Fresca</span></div></li>
-              <li id="item-perrier--11-oz" class=""><div class="row"><div class="top"><span class="name">Perrier (11 oz)</span><span class="dots" aria-hidden="true"></span><span class="price">$3.20</span></div></div></li>
-              <li id="item-dasani-water--20-oz" class=""><div class="row"><div class="top"><span class="name">Dasani water (20 oz)</span><span class="dots" aria-hidden="true"></span><span class="price">$2.50</span></div></div></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <p class="note">Prices and dishes can change. Catupiry is a creamy Brazilian cheese, and calabresa is a Brazilian smoked sausage. Please tell us about any food allergies before you order. See our <a class="link" href="legal.html#allergens">allergen notice</a>.</p>
-      <p style="margin-top:20px"><a class="btn primary" href="https://orderbrazilpizza.square.site/" target="_blank" rel="noopener">Start an order</a></p>
-    </div>
-  </section>
-
-  <section class="sec" id="about">
-    <div class="wrap">
-      <div class="about">
+      <div class="sec-top rv">
         <div>
-          <h2 style="margin-bottom:18px">Brazil, by the slice</h2>
-          <p>Brazil Pizza brings the authentic flavors of Brazil to Marietta. Every recipe comes from real pizzerias back home, and we bake with passion and a little bit of Brazilian soul.</p>
-          <p>Dine in, take out or get it delivered. Our dining room is open every day except Monday.</p>
+          <span class="kick">Our favorites</span>
+          <h2 style="margin-top:12px">Signature pies</h2>
+          <p>Thin and crispy, loaded with Brazilian toppings. Tap one to find it on the menu.</p>
         </div>
-        <img src="images/dining.jpg" width="1200" height="800" alt="The Brazil Pizza dining room, with a wall of green plants, warm hanging lights and the Brazil Pizza sign" loading="lazy">
+        <div class="arrows"><button type="button" id="prev" aria-label="Previous pizzas">←</button><button type="button" id="next" aria-label="More pizzas">→</button></div>
       </div>
-      <div class="stats" aria-label="Ratings">
-        <div class="stat"><b>4.6</b><span><span class="stars" aria-hidden="true">★★★★★</span>640+ Google reviews</span></div>
-        <div class="stat"><b>4.5</b><span><span class="stars" aria-hidden="true">★★★★★</span>800+ Uber Eats ratings</span></div>
-        <div class="stat"><b>9.5K</b><span>Followers on <a class="link" href="https://www.instagram.com/brazilpizzamarietta/" target="_blank" rel="noopener">Instagram</a></span></div>
+      <div class="sigs" id="sigs">
+        <a class="sig" href="#item-nordestina" data-tab="tab-savory">
+          <img src="images/nordestina.jpg" alt="Nordestina from Brazil Pizza" width="640" height="512" loading="lazy">
+          <span class="sig-tag">From Brazil&#x27;s northeast</span>
+          <span class="sig-body"><span class="sig-name">Nordestina</span><span class="sig-desc">Pizza sauce, mozzarella, dried meat, catupiry, biquinho peppers, queijo coalho, olives, oregano and parsley</span><span class="sig-price"><small>from</small> $25.90</span></span>
+        </a>
+        <a class="sig" href="#item-calabresa" data-tab="tab-savory">
+          <img src="images/calabresa.jpg" alt="Calabresa from Brazil Pizza" width="640" height="512" loading="lazy">
+          <span class="sig-tag">The Brazilian classic</span>
+          <span class="sig-body"><span class="sig-name">Calabresa</span><span class="sig-desc">Pizza sauce, mozzarella, smoked sausage, onions, olives and oregano</span><span class="sig-price"><small>from</small> $24.90</span></span>
+        </a>
+        <a class="sig" href="#item-margherita" data-tab="tab-savory">
+          <img src="images/margherita.jpg" alt="Margherita from Brazil Pizza" width="640" height="512" loading="lazy">
+          <span class="sig-tag">Simple and fresh</span>
+          <span class="sig-body"><span class="sig-name">Margherita</span><span class="sig-desc">Pizza sauce, mozzarella, tomatoes, basil, olives and oregano</span><span class="sig-price"><small>from</small> $23.90</span></span>
+        </a>
+        <a class="sig" href="#item-garlic-bread" data-tab="tab-more">
+          <img src="images/garlic-bread.jpg" alt="Garlic bread from Brazil Pizza" width="640" height="512" loading="lazy">
+          <span class="sig-tag">Start here</span>
+          <span class="sig-body"><span class="sig-name">Garlic bread</span><span class="sig-desc">Mozzarella, parmesan, minced garlic and Italian seasoning</span><span class="sig-price">$7.90</span></span>
+        </a>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="visit">
+  <section class="sweet" id="sweet" aria-labelledby="sweet-h">
     <div class="wrap">
-      <div class="sec-head"><h2>Hours and location</h2></div>
-      <div class="visit">
+      <div class="rv">
+        <span class="kick">Pizza doce</span>
+        <h2 id="sweet-h" style="margin-top:12px">Pizza for <span class="y">dessert.</span></h2>
+        <p>In Brazil, the last pizza of the night is a sweet one. We have 16 of them, from brigadeiro and churros to guava and cheese.</p>
+        <div class="flavors"><span>Brigadeiro</span><span>Churros</span><span>Paçoquita</span><span>Prestígio</span><span>Ferrero</span><span>Romeu e Julieta</span><span>Banana nevada</span></div>
+        <div class="actions"><a class="btn yellow" href="#menu" data-tab="tab-sweet">See all sweet pizzas</a></div>
+      </div>
+      <div class="polaroids rv">
+          <a class="sweet-card" href="#item-strawberry-with-nutella" data-tab="tab-sweet"><img src="images/strawberry-slice.jpg" alt="Strawberry with Nutella sweet pizza from Brazil Pizza" width="640" height="512" loading="lazy"><span class="sweet-cap"><b>Strawberry with Nutella</b><span><small>from</small> $17.90</span></span></a>
+          <a class="sweet-card" href="#item-banana-with-nutella" data-tab="tab-sweet"><img src="images/banana-nutella.jpg" alt="Banana with Nutella sweet pizza from Brazil Pizza" width="640" height="512" loading="lazy"><span class="sweet-cap"><b>Banana with Nutella</b><span><small>from</small> $17.90</span></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="rodizio" id="rodizio" aria-labelledby="rod-h">
+    <div class="wrap">
+      <div class="ticket rv">
+        <div class="main">
+          <span class="kick">Thursday to Sunday</span>
+          <h2 id="rod-h">Rodízio: <span class="f">all-you-can-eat</span> pizza</h2>
+          <p>Can't pick one flavor? Try them all. Our rodízio lets you taste a wide range of savory and sweet Brazilian pizzas for one price, right at your table.</p>
+          <div class="days" aria-label="Rodízio is served Thursday, Friday, Saturday and Sunday">
+            <span aria-hidden="true">Tue</span><span aria-hidden="true">Wed</span><span class="on" aria-hidden="true">Thu</span><span class="on" aria-hidden="true">Fri</span><span class="on" aria-hidden="true">Sat</span><span class="on" aria-hidden="true">Sun</span>
+          </div>
+          <div class="actions">
+            <a class="btn flame" href="tel:+14044211426">Call for times and price</a>
+            <a class="btn white" href="https://www.instagram.com/brazilpizzamarietta/" target="_blank" rel="noopener">See it on Instagram</a>
+          </div>
+        </div>
+        <div class="photo"><img src="images/rodizio.jpg" width="1200" height="800" alt="Three Brazil Pizza pies side by side on a table, topped with onions, olives, basil and cheese" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-sec" id="menu" aria-labelledby="menu-h">
+    <div class="wrap">
+      <div class="sec-top rv">
         <div>
+          <span class="kick">O cardápio</span>
+          <h2 id="menu-h" style="margin-top:12px">The menu</h2>
+          <p>Prices from our online ordering menu. Pizzas come in more than one size, so we show the starting price.</p>
+        </div>
+        <a class="btn flame" href="https://orderbrazilpizza.square.site/" target="_blank" rel="noopener">Start an order</a>
+      </div>
+      <div class="tablist" role="tablist" aria-label="Menu sections">
+        <button type="button" role="tab" id="tab-savory-btn" aria-controls="tab-savory" aria-selected="true">Savory</button>
+        <button type="button" role="tab" id="tab-sweet-btn" aria-controls="tab-sweet" aria-selected="false" tabindex="-1">Sweet</button>
+        <button type="button" role="tab" id="tab-more-btn" aria-controls="tab-more" aria-selected="false" tabindex="-1">Combos, calzones and sides</button>
+        <button type="button" role="tab" id="tab-drinks-btn" aria-controls="tab-drinks" aria-selected="false" tabindex="-1">Drinks</button>
+      </div>
+        <div class="panel" role="tabpanel" id="tab-savory" aria-labelledby="tab-savory-btn" tabindex="0">
+          <h3 id="savory" class="sr">Savory pizzas <span class="pt" lang="pt-BR">Pizza inteira salgada</span></h3>
+          <ul class="items">
+            <li class="item" id="item-5-cheese"><div class="it-body"><h4>5 cheese</h4><span class="pt" lang="pt-BR">5 queijos</span><p class="desc">Pizza sauce, mozzarella, gorgonzola, parmesan, provolone, catupiry, olives and oregano</p><span class="tag" title="$23.90 to $31.90, by size"><small>from</small> $23.90</span></div></li>
+            <li class="item" id="item-bacon"><div class="it-body"><h4>Bacon</h4><p class="desc">Pizza sauce, mozzarella, bacon, olives and oregano</p><span class="tag" title="$23.90 to $31.90, by size"><small>from</small> $23.90</span></div></li>
+            <li class="item" id="item-broccoli-with-bacon"><div class="it-body"><h4>Broccoli with bacon</h4><p class="desc">Pizza sauce, mozzarella, broccoli, bacon, catupiry, cheddar, olives and oregano</p><span class="tag" title="$24.90 to $32.90, by size"><small>from</small> $24.90</span></div></li>
+            <li class="item has-img" id="item-calabresa"><img class="it-img" src="images/calabresa.jpg" alt="" width="640" height="512" loading="lazy"><div class="it-body"><h4>Calabresa</h4><p class="desc">Pizza sauce, mozzarella, smoked sausage, onions, olives and oregano</p><span class="tag" title="$24.90 to $32.90, by size"><small>from</small> $24.90</span></div></li>
+            <li class="item" id="item-calabresa-with-bacon"><div class="it-body"><h4>Calabresa with bacon</h4><p class="desc">Pizza sauce, mozzarella, smoked sausage, bacon, olives and oregano</p><span class="tag" title="$24.90 to $32.90, by size"><small>from</small> $24.90</span></div></li>
+            <li class="item" id="item-canadian-bacon-with-catupiry"><div class="it-body"><h4>Canadian bacon with catupiry</h4><span class="pt" lang="pt-BR">Lombinho</span><p class="desc">Pizza sauce, mozzarella, Canadian bacon, pineapple, catupiry, olives and oregano</p><span class="tag" title="$24.90 to $32.90, by size"><small>from</small> $24.90</span></div></li>
+            <li class="item" id="item-carnivore"><div class="it-body"><h4>Carnivore</h4><p class="desc">Pizza sauce, mozzarella, pepperoni, bacon, Italian sausage, green bell peppers and mushrooms</p><span class="tag" title="$23.90 to $31.90, by size"><small>from</small> $23.90</span></div></li>
+            <li class="item" id="item-carne-seca-bbq"><div class="it-body"><h4>Carne seca BBQ</h4><p class="desc">Tomato sauce, mozzarella, shredded beef, BBQ sauce and green onions</p><span class="tag" title="$24.90 to $32.90, by size"><small>from</small> $24.90</span></div></li>
+            <li class="item" id="item-chicken-with-bacon"><div class="it-body"><h4>Chicken with bacon</h4><p class="desc">Pizza sauce, chicken, mozzarella, bacon, olives and oregano</p><span class="tag" title="$23.90 to $31.90, by size"><small>from</small> $23.90</span></div></li>
+            <li class="item" id="item-chicken-with-catupiry"><div class="it-body"><h4>Chicken with catupiry</h4><span class="pt" lang="pt-BR">Frango com catupiry</span><p class="desc">Pizza sauce, mozzarella, chicken, corn, catupiry, olives and oregano</p><span class="tag" title="$25.90 to $33.90, by size"><small>from</small> $25.90</span></div></li>
+            <li class="item" id="item-churrasco"><div class="it-body"><h4>Churrasco</h4><p class="desc">Pizza sauce, mozzarella, provolone, steak, vinaigrette and catupiry</p><span class="tag" title="$25.90 to $33.90, by size"><small>from</small> $25.90</span></div></li>
+            <li class="item" id="item-hawaiian"><div class="it-body"><h4>Hawaiian</h4><p class="desc">Pizza sauce, mozzarella, ham, pineapple, olives and oregano</p><span class="tag" title="$23.90 to $31.90, by size"><small>from</small> $23.90</span></div></li>
+            <li class="item" id="item-hearts-of-palm"><div class="it-body"><h4>Hearts of palm</h4><span class="pt" lang="pt-BR">Palmito</span><p class="desc">Pizza sauce, mozzarella, catupiry, hearts of palm, black olives and oregano</p><span class="tag" title="$24.90 to $32.90, by size"><small>from</small> $24.90</span></div></li>
+            <li class="item" id="item-house-style"><div class="it-body"><h4>House style</h4><span class="pt" lang="pt-BR">Moda da casa</span><p class="desc">Pizza sauce, mozzarella, calabresa, ham, Canadian bacon, tomatoes, eggs, bacon, corn, peas, onions, olives and oregano</p><span class="tag" title="$25.90 to $33.90, by size"><small>from</small> $25.90</span></div></li>
+            <li class="item has-img" id="item-margherita"><img class="it-img" src="images/margherita.jpg" alt="" width="640" height="512" loading="lazy"><div class="it-body"><h4>Margherita</h4><p class="desc">Pizza sauce, mozzarella, tomatoes, basil, olives and oregano</p><span class="tag" title="$23.90 to $31.90, by size"><small>from</small> $23.90</span></div></li>
+            <li class="item" id="item-mozzarella"><div class="it-body"><h4>Mozzarella</h4><p class="desc">Pizza sauce, mozzarella, tomatoes, olives and oregano</p><span class="tag" title="$23.90 to $31.90, by size"><small>from</small> $23.90</span></div></li>
+            <li class="item has-img" id="item-nordestina"><img class="it-img" src="images/nordestina.jpg" alt="" width="640" height="512" loading="lazy"><div class="it-body"><h4>Nordestina</h4><p class="desc">Pizza sauce, mozzarella, dried meat, catupiry, biquinho peppers, queijo coalho, olives, oregano and parsley</p><span class="tag" title="$25.90 to $33.90, by size"><small>from</small> $25.90</span></div></li>
+            <li class="item" id="item-pepperoni"><div class="it-body"><h4>Pepperoni</h4><p class="desc">Pizza sauce, mozzarella, pepperoni, olives and oregano</p><span class="tag" title="$23.90 to $31.90, by size"><small>from</small> $23.90</span></div></li>
+            <li class="item" id="item-portuguese"><div class="it-body"><h4>Portuguese</h4><span class="pt" lang="pt-BR">Portuguesa</span><p class="desc">Pizza sauce, ham, eggs, bacon, corn, peas, mozzarella, tomatoes, olives and oregano</p><span class="tag" title="$24.90 to $32.90, by size"><small>from</small> $24.90</span></div></li>
+            <li class="item" id="item-shrimp-supreme"><div class="it-body"><h4>Shrimp supreme</h4><p class="desc">White sauce, mozzarella, catupiry, shrimp, parmesan, garlic sauce and parsley</p><span class="tag" title="$25.90 to $33.90, by size"><small>from</small> $25.90</span></div></li>
+            <li class="item" id="item-verde"><div class="it-body"><h4>Verde</h4><p class="desc">Pizza sauce, mozzarella, oregano, arugula, sun-dried tomatoes and parmesan</p><span class="tag" title="$23.90 to $29.90, by size"><small>from</small> $23.90</span></div></li>
+          </ul>
+        </div>
+        <div class="panel" role="tabpanel" id="tab-sweet" aria-labelledby="tab-sweet-btn" tabindex="0">
+          <h3 id="sweet" class="sr">Sweet pizzas <span class="pt" lang="pt-BR">Pizza inteira doce</span></h3>
+          <ul class="items">
+            <li class="item" id="item-banana-with-cinnamon"><div class="it-body"><h4>Banana with cinnamon</h4><p class="desc">Table cream, mozzarella, banana, sweetened condensed milk and cinnamon</p><span class="tag" title="$17.90 to $31.90, by size"><small>from</small> $17.90</span></div></li>
+            <li class="item has-img" id="item-banana-with-nutella"><img class="it-img" src="images/banana-nutella.jpg" alt="" width="640" height="512" loading="lazy"><div class="it-body"><h4>Banana with Nutella</h4><p class="desc">Table cream, mozzarella, banana and Nutella</p><span class="tag" title="$17.90 to $31.90, by size"><small>from</small> $17.90</span></div></li>
+            <li class="item" id="item-brazilian-peanut-candy"><div class="it-body"><h4>Brazilian peanut candy</h4><span class="pt" lang="pt-BR">Paçoquita</span><p class="desc">Dulce de leche, paçoca and peanut brittle</p><span class="tag" title="$17.90 to $31.90, by size"><small>from</small> $17.90</span></div></li>
+            <li class="item" id="item-brigadeiro-gourmet"><div class="it-body"><h4>Brigadeiro gourmet</h4><p class="desc">Brigadeiro spread, chocolate sprinkles and traditional brigadeiro</p><span class="tag" title="$17.90 to $31.90, by size"><small>from</small> $17.90</span></div></li>
+            <li class="item" id="item-burnt-coconut"><div class="it-body"><h4>Burnt coconut</h4><p class="desc">Shredded coconut, dulce de leche and powdered sugar</p><span class="tag" title="$17.90 to $31.90, by size"><small>from</small> $17.90</span></div></li>
+            <li class="item" id="item-churros"><div class="it-body"><h4>Churros</h4><p class="desc">Sweetened condensed milk, mozzarella, dulce de leche, cinnamon and powdered sugar</p><span class="tag" title="$17.90 to $31.90, by size"><small>from</small> $17.90</span></div></li>
+            <li class="item" id="item-coconut-chocolate"><div class="it-body"><h4>Coconut chocolate</h4><span class="pt" lang="pt-BR">Prestígio</span><p class="desc">Nutella, sweetened condensed milk, shredded coconut and coconut chocolate</p><span class="tag" title="$17.90 to $31.90, by size"><small>from</small> $17.90</span></div></li>
+            <li class="item" id="item-ferrero"><div class="it-body"><h4>Ferrero</h4><p class="desc">Nutella, chopped nuts, Ferrero Rocher and edible gold dust</p><span class="tag" title="$17.90 to $31.90, by size"><small>from</small> $17.90</span></div></li>
+            <li class="item" id="item-kinder"><div class="it-body"><h4>Kinder</h4><p class="desc">Nutella, Kinder Bueno and sweetened condensed milk</p><span class="tag" title="$17.90 to $31.90, by size"><small>from</small> $17.90</span></div></li>
+            <li class="item" id="item-m-m-s"><div class="it-body"><h4>M&amp;M&#x27;s</h4><p class="desc">Nutella and M&amp;M&#x27;s</p><span class="tag" title="$17.90 to $31.90, by size"><small>from</small> $17.90</span></div></li>
+            <li class="item" id="item-romeo-and-juliet"><div class="it-body"><h4>Romeo and Juliet</h4><span class="pt" lang="pt-BR">Romeu e Julieta</span><p class="desc">Table cream, mozzarella, catupiry and guava paste</p><span class="tag" title="$17.90 to $31.90, by size"><small>from</small> $17.90</span></div></li>
+            <li class="item" id="item-snowy-banana"><div class="it-body"><h4>Snowy banana</h4><span class="pt" lang="pt-BR">Banana nevada</span><p class="desc">Table cream, mozzarella, banana, sweetened condensed milk, dulce de leche and Nido milk powder</p><span class="tag" title="$17.90 to $31.90, by size"><small>from</small> $17.90</span></div></li>
+            <li class="item" id="item-strawberry-white-chocolate"><div class="it-body"><h4>Strawberry white chocolate</h4><p class="desc">Table cream, mozzarella, white chocolate, strawberry and Kinder Bueno</p><span class="tag" title="$17.90 to $31.90, by size"><small>from</small> $17.90</span></div></li>
+            <li class="item has-img" id="item-strawberry-with-nutella"><img class="it-img" src="images/strawberry-slice.jpg" alt="" width="640" height="512" loading="lazy"><div class="it-body"><h4>Strawberry with Nutella</h4><p class="desc">Nutella, strawberries and chocolate sprinkles</p><span class="tag" title="$17.90 to $31.90, by size"><small>from</small> $17.90</span></div></li>
+            <li class="item" id="item-white-chocolate"><div class="it-body"><h4>White chocolate</h4><p class="desc">Table cream, mozzarella, white chocolate, green grapes and white chocolate wafer</p><span class="tag" title="$17.90 to $31.90, by size"><small>from</small> $17.90</span></div></li>
+            <li class="item" id="item-yoyo"><div class="it-body"><h4>Yoyo</h4><span class="pt" lang="pt-BR">Chocolate branco e Nutella</span><p class="desc">Table cream, mozzarella, white chocolate and Nutella</p><span class="tag" title="$17.90 to $31.90, by size"><small>from</small> $17.90</span></div></li>
+          </ul>
+        </div>
+        <div class="panel" role="tabpanel" id="tab-more" aria-labelledby="tab-more-btn" tabindex="0">
+          <h3 id="deal">Tuesday to Thursday deal</h3>
+          <ul class="items">
+            <li class="item" id="item-classic-pizza-combo"><div class="it-body"><h4>Classic pizza combo</h4><p class="desc">Large pizza, garlic or pepperoni bread, and a 2-liter soda</p><span class="tag" title="$29.90">$29.90</span></div></li>
+          </ul>
+          <h3 id="half">Half and half <span class="pt" lang="pt-BR">Meio a meio</span></h3>
+          <ul class="items">
+            <li class="item" id="item-half-and-half-savory"><div class="it-body"><h4>Half and half savory</h4><span class="pt" lang="pt-BR">Meia/meia salgada</span><p class="desc">Pick two savory flavors on one pizza</p><span class="tag" title="$23.90 to $31.90, by size"><small>from</small> $23.90</span></div></li>
+            <li class="item" id="item-half-and-half-sweet"><div class="it-body"><h4>Half and half sweet</h4><span class="pt" lang="pt-BR">Meia/meia doce</span><p class="desc">Pick two sweet flavors on one pizza</p><span class="tag" title="$23.90 to $31.90, by size"><small>from</small> $23.90</span></div></li>
+          </ul>
+          <h3 id="calzone">Calzones</h3>
+          <ul class="items">
+            <li class="item" id="item-pepperoni-calzone"><div class="it-body"><h4>Pepperoni calzone</h4><p class="desc">Marinara, mozzarella, pepperoni, mushrooms and Italian sausage</p><span class="tag" title="$12.90">$12.90</span></div></li>
+            <li class="item" id="item-brasileiro"><div class="it-body"><h4>Brasileiro</h4><p class="desc">Marinara, mozzarella, dried meat, bell pepper, catupiry, onions and green olives</p><span class="tag" title="$15.90">$15.90</span></div></li>
+            <li class="item" id="item-frangão"><div class="it-body"><h4>Frangão</h4><p class="desc">Marinara, mozzarella, chicken, catupiry, cheddar, bacon and green olives</p><span class="tag" title="$14.90">$14.90</span></div></li>
+            <li class="item" id="item-do-chefe"><div class="it-body"><h4>Do chefe</h4><p class="desc">Marinara, mozzarella and the chef&#x27;s secret blend with calabresa and green olives</p><span class="tag" title="$15.90">$15.90</span></div></li>
+          </ul>
+          <h3 id="apps">Appetizers</h3>
+          <ul class="items">
+            <li class="item has-img" id="item-garlic-bread"><img class="it-img" src="images/garlic-bread.jpg" alt="" width="640" height="512" loading="lazy"><div class="it-body"><h4>Garlic bread</h4><p class="desc">Mozzarella, parmesan, minced garlic and Italian seasoning</p><span class="tag" title="$7.90">$7.90</span></div></li>
+            <li class="item" id="item-pepperoni-bread"><div class="it-body"><h4>Pepperoni bread</h4><p class="desc">Mozzarella, pepperoni and Italian seasoning</p><span class="tag" title="$9.90">$9.90</span></div></li>
+          </ul>
+        </div>
+        <div class="panel" role="tabpanel" id="tab-drinks" aria-labelledby="tab-drinks-btn" tabindex="0">
+          <h3 id="drinks" class="sr">Drinks</h3>
+          <ul class="items">
+            <li class="item" id="item-guaraná-antarctica--2-liter"><div class="it-body"><h4>Guaraná Antarctica (2 liter)</h4><span class="tag" title="$7.50">$7.50</span></div></li>
+            <li class="item" id="item-guaraná-antarctica--12-oz"><div class="it-body"><h4>Guaraná Antarctica (12 oz)</h4><p class="desc">Regular or zero</p><span class="tag" title="$3.50">$3.50</span></div></li>
+            <li class="item" id="item-coca-cola--2-liter"><div class="it-body"><h4>Coca-Cola (2 liter)</h4><span class="tag" title="$5.50">$5.50</span></div></li>
+            <li class="item" id="item-mexican-coke"><div class="it-body"><h4>Mexican Coke</h4><span class="tag" title="$4.50">$4.50</span></div></li>
+            <li class="item" id="item-canned-soda--12-oz"><div class="it-body"><h4>Canned soda (12 oz)</h4><p class="desc">Coca-Cola, Coke Zero, Sprite or Fresca</p><span class="tag" title="$2.50">$2.50</span></div></li>
+            <li class="item" id="item-perrier--11-oz"><div class="it-body"><h4>Perrier (11 oz)</h4><span class="tag" title="$3.20">$3.20</span></div></li>
+            <li class="item" id="item-dasani-water--20-oz"><div class="it-body"><h4>Dasani water (20 oz)</h4><span class="tag" title="$2.50">$2.50</span></div></li>
+          </ul>
+        </div>
+      <p class="menu-note">Prices and dishes can change. Catupiry is a creamy Brazilian cheese, and calabresa is a Brazilian smoked sausage. Please tell us about any food allergies before you order. See our <a href="legal.html#allergens">allergen notice</a>.</p>
+    </div>
+  </section>
+
+  <section class="about" id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="collage rv">
+        <img class="a" src="images/dining.jpg" width="1200" height="800" alt="The Brazil Pizza dining room, with a wall of green plants, warm hanging lights and the Brazil Pizza sign" loading="lazy">
+        <img class="b" src="images/dining2.jpg" width="1200" height="800" alt="Guests eating in the Brazil Pizza dining room, with palm plants and Brazilian city photos on the wall" loading="lazy">
+      </div>
+      <div class="rv">
+        <span class="kick">Nossa história</span>
+        <h2 id="about-h" style="margin-top:12px">A little Brazil in Marietta</h2>
+        <p class="big">Brazil Pizza brings the authentic flavors of Brazil to Marietta. Every recipe comes from real pizzerias back home, and we bake with passion and a little bit of Brazilian soul.</p>
+        <p class="sm">Dine in, take out or get it delivered. Our dining room is open every day except Monday.</p>
+        <div class="badges" aria-label="Ratings">
+          <div class="bdg"><b>4.6</b><span>640+ Google reviews</span></div>
+          <div class="bdg"><b>4.5</b><span>800+ Uber Eats ratings</span></div>
+          <div class="bdg"><b>9.5K</b><span><a href="https://www.instagram.com/brazilpizzamarietta/" target="_blank" rel="noopener">Instagram followers</a></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit" aria-labelledby="visit-h">
+    <div class="wrap">
+      <div class="box rv">
+        <div class="lid">
+          <h2 id="visit-h">Come hungry</h2>
           <table class="hours" id="hours" aria-label="Opening hours">
             <tr data-d="1" class="closed"><td>Monday</td><td>Closed</td></tr>
             <tr data-d="2"><td>Tuesday</td><td>2 pm to 10:30 pm</td></tr>
@@ -478,14 +554,14 @@
             <tr data-d="0"><td>Sunday</td><td>5 pm to 10:30 pm</td></tr>
           </table>
           <p class="small">Rodízio Thursday to Sunday. Please call ahead on holidays.</p>
-          <div class="storefront"><img src="images/storefront.jpg" width="1200" height="800" alt="The Brazil Pizza storefront on Powers Ferry Road, with the sign above the door" loading="lazy"></div>
-        </div>
-        <div class="place">
-          <p>279 Powers Ferry Rd SE, Ste B<br>Marietta, GA 30067</p>
+          <p class="addr">279 Powers Ferry Rd SE, Ste B<br>Marietta, GA 30067</p>
           <div class="actions">
-            <a class="btn primary" href="https://www.google.com/maps/dir/?api=1&destination=Brazil+Pizza+279+Powers+Ferry+Rd+SE+Ste+B+Marietta+GA+30067" target="_blank" rel="noopener">Get directions</a>
-            <a class="btn ghost" href="tel:+14044211426">(404) 421-1426</a>
+            <a class="btn yellow" href="https://www.google.com/maps/dir/?api=1&destination=Brazil+Pizza+279+Powers+Ferry+Rd+SE+Ste+B+Marietta+GA+30067" target="_blank" rel="noopener">Get directions</a>
+            <a class="btn white" href="tel:+14044211426">(404) 421-1426</a>
           </div>
+        </div>
+        <div class="side">
+          <img src="images/storefront.jpg" width="1200" height="800" alt="The Brazil Pizza storefront on Powers Ferry Road, with the sign above the door" loading="lazy">
           <div class="map"><iframe loading="lazy" title="Map of Brazil Pizza on Powers Ferry Road" src="https://www.google.com/maps?q=Brazil+Pizza,+279+Powers+Ferry+Rd+SE,+Marietta,+GA+30067&output=embed"></iframe></div>
         </div>
       </div>
@@ -507,9 +583,9 @@
 </footer>
 
 <div class="bar" aria-label="Quick actions">
-  <a class="btn primary" href="https://orderbrazilpizza.square.site/" target="_blank" rel="noopener">Order</a>
-  <a class="btn ghost" href="tel:+14044211426">Call</a>
-  <a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&destination=Brazil+Pizza+279+Powers+Ferry+Rd+SE+Ste+B+Marietta+GA+30067" target="_blank" rel="noopener">Directions</a>
+  <a class="btn yellow" href="https://orderbrazilpizza.square.site/" target="_blank" rel="noopener">Order</a>
+  <a class="btn white" href="tel:+14044211426">Call</a>
+  <a class="btn white" href="https://www.google.com/maps/dir/?api=1&destination=Brazil+Pizza+279+Powers+Ferry+Rd+SE+Ste+B+Marietta+GA+30067" target="_blank" rel="noopener">Directions</a>
 </div>
 
 <script>
@@ -537,122 +613,52 @@
     document.getElementById("yr").textContent = now.getFullYear();
   } catch(e) {}
 
-  // Highlight the menu category you're looking at, and keep its chip in view (single-column layout only)
-  if (window.matchMedia("(max-width: 899px)").matches) try {
-    var chips = document.querySelectorAll(".chips a"), map = {};
-    chips.forEach(function(c){ map[c.getAttribute("href").slice(1)] = c; });
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if (!en.isIntersecting) return;
-        chips.forEach(function(c){ c.classList.remove("on"); c.removeAttribute("aria-current"); });
-        var c = map[en.target.id]; if (!c) return;
-        c.classList.add("on"); c.setAttribute("aria-current","true");
-        c.parentNode.scrollTo({left: c.offsetLeft - 20, behavior: "smooth"});
-      });
-    }, {rootMargin: "-130px 0px -60% 0px"});
-    document.querySelectorAll(".group").forEach(function(g){ io.observe(g); });
-  } catch(e) {}
-</script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
-<script src="https://unpkg.com/lenis@1.3.27/dist/lenis.min.js"></script>
-<script>
-  // Motion: smooth scrolling (Lenis) + entrance and scroll reveals (GSAP).
-  // If these libraries fail to load, the page simply shows everything with no animation.
-  (function(){
-    if (!window.gsap || !window.ScrollTrigger) return;
-    gsap.registerPlugin(ScrollTrigger, window.SplitText);
-    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (window.Lenis && !reduce) {
-      var lenis = new Lenis({ lerp: 0.12 });
-      lenis.on("scroll", ScrollTrigger.update);
-      gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
-      gsap.ticker.lagSmoothing(0);
-      document.addEventListener("click", function(e){
-        var a = e.target.closest && e.target.closest('a[href^="#"]'); if (!a) return;
-        var el = document.querySelector(a.getAttribute("href")); if (!el) return;
-        e.preventDefault();
-        var y = el.getBoundingClientRect().top + window.scrollY - (parseFloat(getComputedStyle(el).scrollMarginTop) || 0);
-        var t = gsap.getProperty(el, "y"); if (t) y -= t;
-        lenis.scrollTo(Math.max(0, y), { duration: 1.1, easing: function(x){ return 1 - Math.pow(1 - x, 4); } });
-        if (history.replaceState) history.replaceState(null, "", a.getAttribute("href"));
-      });
-    }
-
-    document.querySelectorAll(".pop").forEach(function(a){
-      a.addEventListener("click", function(){
-        var li = document.querySelector(a.getAttribute("href")); if (!li) return;
-        li.classList.add("hl"); setTimeout(function(){ li.classList.remove("hl"); }, 2200);
-      });
+  // Menu tabs (keyboard: arrow keys, Home, End)
+  var tabs = [].slice.call(document.querySelectorAll('[role="tab"]'));
+  function showTab(id, focus){
+    tabs.forEach(function(t){
+      var on = t.getAttribute("aria-controls") === id;
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+      if (on && focus) t.focus();
     });
-
-    var mm = gsap.matchMedia();
-    mm.add("(prefers-reduced-motion: no-preference)", function(){
-      var photo = document.querySelector(".hero-photo img");
-      var tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-      tl.from(".hero .status", { y: 12, opacity: 0, duration: 0.5 })
-        .fromTo(".hero-photo", { clipPath: "inset(10% 10% 10% 10% round 22px)" },
-                               { clipPath: "inset(0% 0% 0% 0% round 22px)", duration: 1.2, ease: "power3.inOut" }, 0.1)
-        .from(photo, { scale: 1.3, duration: 1.6 }, 0.1)
-        .from(".hero .lead, .hero .actions, .hero .rating", { y: 18, opacity: 0, duration: 0.7, stagger: 0.08 }, 0.5)
-        .from(".glance", { y: 24, opacity: 0, duration: 0.7 }, 0.75);
-
-      if (window.SplitText) {
-        SplitText.create(".hero h1", { type: "lines", mask: "lines", autoSplit: true,
-          onSplit: function(self){ return gsap.from(self.lines, { yPercent: 110, duration: 0.9, ease: "power4.out", stagger: 0.09, delay: 0.1 }); } });
-      }
-
-      document.querySelectorAll(".btn").forEach(function(btn){
-        var wrap = document.createElement("span"); wrap.className = "rip"; wrap.setAttribute("aria-hidden","true");
-        var label = document.createElement("span"); label.className = "t";
-        while (btn.firstChild) label.appendChild(btn.firstChild);
-        btn.appendChild(wrap); btn.appendChild(label);
-        btn.addEventListener("pointerdown", function(ev){
-          var r = btn.getBoundingClientRect(), dot = document.createElement("i");
-          dot.style.left = (ev.clientX - r.left) + "px"; dot.style.top = (ev.clientY - r.top) + "px";
-          wrap.appendChild(dot);
-          gsap.fromTo(dot, { scale: 0, opacity: 0.35 }, { scale: 1, opacity: 0, duration: 0.5, ease: "power2.out", onComplete: function(){ dot.remove(); } });
-          if (!btn.classList.contains("magnetic")) gsap.fromTo(btn, { scale: 0.95 }, { scale: 1, duration: 0.35, ease: "back.out(3)" });
-        });
-      });
-
-      if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-        document.querySelectorAll(".btn.magnetic").forEach(function(btn){
-          btn.addEventListener("mousemove", function(ev){
-            var r = btn.getBoundingClientRect();
-            gsap.to(btn, { x: (ev.clientX - r.left - r.width/2) * 0.12, y: (ev.clientY - r.top - r.height/2) * 0.2, scale: 1.03, duration: 0.4, ease: "power3.out" });
-          });
-          btn.addEventListener("mouseleave", function(){ gsap.to(btn, { x: 0, y: 0, scale: 1, duration: 0.7, ease: "elastic.out(1, 0.45)" }); });
-        });
-      }
-
-      gsap.fromTo(photo, { yPercent: -4 }, { yPercent: 4, ease: "none",
-        scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
-
-      gsap.utils.toArray(".sec-head, .rodizio h2, .about h2").forEach(function(h){
-        gsap.from(h, { y: 28, opacity: 0, duration: 0.8, scrollTrigger: { trigger: h, start: "top 90%", once: true } });
-      });
-      gsap.from(".pop", { y: 40, opacity: 0, duration: 0.7, stagger: 0.08,
-        scrollTrigger: { trigger: ".pops", start: "top 85%", once: true } });
-      gsap.from(".shots img", { y: 40, opacity: 0, duration: 0.8, stagger: 0.12,
-        scrollTrigger: { trigger: ".shots", start: "top 85%", once: true } });
-      gsap.from(".rodizio .days span", { scale: 0.6, opacity: 0, duration: 0.4, stagger: 0.05, ease: "back.out(2)",
-        scrollTrigger: { trigger: ".rodizio .days", start: "top 90%", once: true } });
-      gsap.utils.toArray(".group").forEach(function(g){
-        gsap.from(g.querySelectorAll("h3, li"), { y: 16, opacity: 0, duration: 0.5, stagger: 0.03,
-          scrollTrigger: { trigger: g, start: "top 92%", once: true } });
-      });
-      gsap.from(".stat", { y: 24, opacity: 0, duration: 0.6, stagger: 0.1,
-        scrollTrigger: { trigger: ".stats", start: "top 90%", once: true } });
-      gsap.from(".visit > *", { y: 24, opacity: 0, duration: 0.7, stagger: 0.12,
-        scrollTrigger: { trigger: ".visit", start: "top 88%", once: true } });
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener("click", function(){ showTab(t.getAttribute("aria-controls")); });
+    t.addEventListener("keydown", function(ev){
+      var j = {ArrowRight:i+1, ArrowLeft:i-1, Home:0, End:tabs.length-1}[ev.key];
+      if (j === undefined) return; ev.preventDefault();
+      showTab(tabs[(j+tabs.length)%tabs.length].getAttribute("aria-controls"), true);
     });
+  });
+  showTab(tabs[0].getAttribute("aria-controls"));
 
-    document.fonts && document.fonts.ready.then(function(){ ScrollTrigger.refresh(); });
-    window.addEventListener("load", function(){ ScrollTrigger.refresh(); });
-  })();
+  // Links to a dish (or a tab) open the right tab first, then scroll to it and highlight it
+  document.addEventListener("click", function(ev){
+    var a = ev.target.closest && ev.target.closest("a[data-tab]"); if (!a) return;
+    showTab(a.getAttribute("data-tab"));
+    var el = document.querySelector(a.getAttribute("href"));
+    if (el && el.classList.contains("item")) { el.classList.add("hl"); setTimeout(function(){ el.classList.remove("hl"); }, 2400); }
+  });
+  function openHash(){
+    var el = location.hash && document.querySelector(location.hash);
+    var p = el && el.closest && el.closest('[role="tabpanel"]');
+    if (p) { showTab(p.id); el.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", openHash); openHash();
+
+  // Carousel arrows (phones and tablets)
+  var sigs = document.getElementById("sigs");
+  function nudge(dir){ var card = sigs.querySelector(".sig"); sigs.scrollBy({left: dir * (card ? card.offsetWidth + 18 : 300), behavior: "smooth"}); }
+  document.getElementById("prev").addEventListener("click", function(){ nudge(-1); });
+  document.getElementById("next").addEventListener("click", function(){ nudge(1); });
+
+  // Gentle reveal as sections scroll in
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }); }, {rootMargin:"0px 0px -8% 0px"});
+    document.querySelectorAll(".rv").forEach(function(el){ io.observe(el); });
+  } else { document.querySelectorAll(".rv").forEach(function(el){ el.classList.add("in"); }); }
 </script>
 </body>
 </html>
